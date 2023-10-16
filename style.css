@@ -45,10 +45,111 @@
   letter-spacing: 0.5px;
   font-weight: 600;
 }
-.results{
-    color: hsl(229, 25%, 31%);
+.results {
+  color: hsl(229, 25%, 31%);
+  text-align: center;
+  font-size: 33px;
+  font-weight: 600;
+  padding-bottom: 10px;
+}
+
+.game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.triangle {
+  margin-top: 100px;
+  width: 220px;
+}
+
+.paper {
+  position: relative;
+  left: -2%;
+}
+
+.elements {
+}
+
+.circles {
+  height: 100px;
+  width: 100px;
+  background-color: aliceblue;
+  display: flex;
+  border-radius: 60px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 9%;
+  bottom: -8px;
+  box-shadow: inset 0px 3px 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+.father-circles {
+  background-image: linear-gradient(
+    120deg,
+    hsl(230, 89%, 62%),
+    hsl(230, 89%, 65%)
+  );
+  height: 116px;
+  width: 120px;
+  border-radius: 63px;
+  box-shadow: 2px 5px 0px 0px rgb(45 70 205 / 51%);
+  position: relative;
+  right: 67%;
+  bottom: -94px;
+}
+
+.father-circles-sci {
+  background-image: linear-gradient(
+    120deg,
+    hsl(39, 89%, 49%),
+    hsl(40, 84%, 53%)
+  );
+  height: 116px;
+  width: 120px;
+  border-radius: 63px;
+  box-shadow: -1px 4px 0px 0px #c76b18;
+  margin-top: 20px;
+  position: relative;
+  right: -75%;
+  bottom: 40px;
+}
+
+.father-circles-rock {
+  background-image: linear-gradient(
+    120deg,
+    hsl(349, 71%, 52%),
+    hsl(349, 70%, 56%)
+  );
+  height: 116px;
+  width: 120px;
+  border-radius: 63px;
+  box-shadow: -1px 4px 0px 0px #9d1736;
+  margin-top: 20px;
+  position: relative;
+  bottom: 46px;
+}
+.options {
+  position: absolute;
+}
+.rules-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 100px;
+    color: #dddddd;
     text-align: center;
-    font-size: 33px;
-    font-weight: 600;
-    padding-bottom: 10px;
+}
+
+
+.rules-content{
+    border-radius: 6px;
+    width: 100px;
+    border: 1px solid white;
+    padding: 5px 10px;
+    letter-spacing: 3px;
+    font-size: 14px;
+    font-weight: 500;
 }

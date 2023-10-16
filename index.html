@@ -1,26 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <main class="father-container">
-        <div class="score">
-            <div class="itens">
-                <p>ROCK</p>
-                <p>PAPER</p>
-                <p>SCISSORS</p>
+      <div class="score">
+        <div class="itens">
+          <p>ROCK</p>
+          <p>PAPER</p>
+          <p>SCISSORS</p>
+        </div>
+        <div class="plate">
+          <p class="pScore">SCORE</p>
+          <span class="results">0</span>
+        </div>
+      </div>
+      <div class="game">
+        <img
+          class="triangle"
+          src="elementos/rock-paper-scissors-master/images/bg-triangle.svg"
+          alt="triangule"
+        />
+        <div class="options">
+            <div class="father-circles">
+                <div class="circles">
+                  <img
+                    class="paper elements"
+                    src="elementos/rock-paper-scissors-master/images/icon-paper.svg"
+                    alt="paper"
+                  />
+                </div>
+              </div>
+              <div class="father-circles-sci">
+                  <div class="circles">
+                    <img
+                      class="scissors elements"
+                      src="elementos/rock-paper-scissors-master/images/icon-scissors.svg"
+                      alt="scissors"
+                    />
+                  </div>
+                </div>
+                <div class="father-circles-rock">
+                  <div class="circles">
+                    <img
+                      class="scissors elements"
+                      src="elementos/rock-paper-scissors-master/images/icon-rock.svg"
+                      alt="scissors"
+                    />
+                  </div>
+                </div>
             </div>
-            <div class="plate">
-                <p class="pScore">SCORE</p>
-                <span class="results">0</span>
+        </div>
+        <div class="rules-container">
+            <div class="rules-content">
+                <p>RULES</p>
             </div>
+        
 
         </div>
+        
+  </div>
     </main>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
