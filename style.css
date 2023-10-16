@@ -1,0 +1,54 @@
+.father-container {
+  background-image: linear-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  min-height: 100vh;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  padding-top: 20px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.score {
+  width: 250px;
+  height: 80px;
+
+  border: 5px solid hsl(217, 16%, 45%);
+  border-radius: 5px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  color: #dddddd;
+  font-weight: 500;
+  line-height: 17px;
+  text-align: start;
+  font-size: 18px;
+  letter-spacing: -1px;
+  align-items: center;
+}
+
+.plate {
+  background-color: #dddddd;
+  border-radius: 5px;
+  width: 70px;
+  height: 70px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.pScore {
+  color: hsl(229, 64%, 46%);
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+.results{
+    color: hsl(229, 25%, 31%);
+    text-align: center;
+    font-size: 33px;
+    font-weight: 600;
+    padding-bottom: 10px;
+}
