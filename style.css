@@ -138,6 +138,11 @@
   transition: 0.8s ease;
 }
 
+
+.picked{
+  transition: 0.8s ease;
+
+}
 .father-circles {
   background-image: linear-gradient(
     120deg,
