@@ -58,24 +58,70 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 .triangle {
   margin-top: 100px;
   width: 220px;
   transition: 0.8s ease;
-
 }
 
 .paper {
   position: relative;
   left: -2%;
   transition: 0.8s ease;
+}
 
+.animaPaper{
+  animation: movePaper 1s ease ;
+  transform: translate(0px, 100px);
+}
+
+@keyframes movePaper {
+  0% {
+      transform: translate(0, 0);
+  }
+  100% {
+      transform: translate(0px, 100px);
+  }
+}
+
+.animaScissors{
+  animation: moveScissors 1s ease ;
+  transform: translate(-290px, 100px);
+}
+
+@keyframes moveScissors {
+  0% {
+      transform: translate(0, 0);
+  }
+  100% {
+      transform: translate(-290px, 100px);
+  }
 }
 
 
+.animaRock{
+  animation: moveRock 1s ease ;
+  transform: translate(-155px, -180px);
+}
+
+@keyframes moveRock {
+  0% {
+      transform: translate(0, 0);
+  }
+  100% {
+      transform: translate(-155px, -180px);
+  }
+}
+
+
+
+
+.ocult{
+  opacity: 0;
+  pointer-events: none;
+}
 
 .circles {
   height: 100px;
@@ -86,11 +132,10 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  left: 9%;
-  bottom: -8px;
+  left: 11%;
+  bottom: 6px;
   box-shadow: inset 0px 3px 2px 0px rgba(0, 0, 0, 0.5);
   transition: 0.8s ease;
-
 }
 
 .father-circles {
@@ -107,7 +152,6 @@
   right: 67%;
   bottom: -94px;
   transition: 0.8s ease;
-
 }
 
 .father-circles-sci {
@@ -125,7 +169,6 @@
   right: -75%;
   bottom: 40px;
   transition: 0.8s ease;
-
 }
 
 .father-circles-rock {
@@ -142,7 +185,6 @@
   position: relative;
   bottom: 46px;
   transition: 0.8s ease;
-
 }
 .options {
   position: absolute;
@@ -165,7 +207,17 @@
   font-size: 14px;
   font-weight: 500;
 }
-
+.picked{
+  position: relative;
+  left: 8%;
+  bottom: 19%;
+  font-size: 12px;
+  text-align: start;
+  line-height: normal;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: #dddddd;
+}
 @media (min-width: 600px) {
   .score {
     width: 500px;
@@ -194,17 +246,15 @@
   .triangle {
     width: 384px;
     transition: 0.8s ease;
-
   }
 
   .circles {
     height: 167px;
     width: 159px;
     border-radius: 50%;
-    left: 9%;
-    bottom: -11px;
+    left: 8.5%;
+    bottom: 2px;
     transition: 0.8s ease;
-
   }
   .father-circles {
     height: 190px;
@@ -213,7 +263,6 @@
     right: 78%;
     bottom: -98px;
     transition: 0.8s ease;
-
   }
 
   .father-circles-sci {
@@ -223,20 +272,17 @@
     right: -77%;
     bottom: 112px;
     transition: 0.8s ease;
-
   }
   .paper {
     position: relative;
     left: -2%;
     width: 80px;
     transition: 0.8s ease;
-
   }
   .scissors,
   .rock {
     width: 80px;
     transition: 0.8s ease;
-
   }
 
   .father-circles-rock {
@@ -246,14 +292,13 @@
     right: -2%;
     bottom: 42px;
     transition: 0.8s ease;
-
-
-
   }
   .game {
     padding-top: 50px;
-    
   }
-
-
+  .picked{
+    position: relative;
+    left: 23%;
+    bottom: 14%;
+  }
 }
