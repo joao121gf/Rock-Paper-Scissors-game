@@ -245,9 +245,22 @@
 
 
 #cloneScissor, #clonePaper, #cloneRock{
-  /* transition: 0.8s ease; */
+  animation: movePc 1s ease ;
 
 }
+
+
+@keyframes movePc {
+  0% {
+      transform: translate(0, 0);
+  }
+  100% {
+      transform: translate(-155px, -180px);
+  }
+}
+
+
+
 
 @media (min-width: 600px) {
   .score {

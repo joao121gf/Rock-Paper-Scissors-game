@@ -82,6 +82,7 @@ function generateCircle() {
     clonePapers.style.zIndex = "2";
     clonePapers.style.position = "fixed";
     clonePapers.style.animation = "none";
+
   }
   if (genNumber === 2) {
     const cloneScissor = scissors.cloneNode(true);
