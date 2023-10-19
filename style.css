@@ -177,6 +177,9 @@
   z-index: 200;
 }
 
+
+
+
 .father-circles-rock {
   background-image: linear-gradient(
     120deg,
@@ -241,7 +244,10 @@
 
 
 
+#cloneScissor, #clonePaper, #cloneRock{
+  /* transition: 0.8s ease; */
 
+}
 
 @media (min-width: 600px) {
   .score {

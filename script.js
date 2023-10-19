@@ -26,7 +26,6 @@ function anime() {
       boxShadow.style.opacity = 0;
     }
     generateCircle();
-
   }
 
   if (this === scissors) {
@@ -46,7 +45,6 @@ function anime() {
       boxShadow.style.opacity = 0;
     }
     generateCircle();
-
   }
   if (this === rock) {
     this.classList.toggle("animaRock");
@@ -76,21 +74,35 @@ function generateCircle() {
   let genNumber = Math.floor(Math.random() * 3) + 1;
   if (genNumber === 1) {
     const clonePaper = paper.cloneNode(true);
-    clonePaper.id = "clonePaper";
+    clonePaper.id = "clonePapers";
     options.appendChild(clonePaper);
-    clonePaper.classList.remove("ocult");
+    clonePapers.classList.remove("ocult");
+    clonePapers.style.left = "52%";
+    clonePapers.style.top = "18.3%";
+    clonePapers.style.zIndex = "2";
+    clonePapers.style.position = "fixed";
+    clonePapers.style.animation = "none";
   }
   if (genNumber === 2) {
     const cloneScissor = scissors.cloneNode(true);
-    cloneScissor.id = "cloneScissor";
+    cloneScissor.id = "cloneScissors";
     options.appendChild(cloneScissor);
-    cloneScissor.classList.remove("ocult");
+    cloneScissors.classList.remove("ocult");
+    cloneScissors.style.left = "52%";
+    cloneScissors.style.top = "27.3%";
+    clonePapers.style.zIndex = "2";
+    cloneScissors.style.position = "fixed";
+    cloneScissors.style.animation = "none";
   }
   if (genNumber === 3) {
     const cloneRock = rock.cloneNode(true);
-    cloneRock.id = "cloneRock";
+    cloneRock.id = "cloneRocks";
     options.appendChild(cloneRock);
-    cloneRock.classList.remove("ocult");
+    cloneRocks.classList.remove("ocult");
+    cloneRocks.style.left = "52%";
+    cloneRocks.style.top = "27%";
+    cloneRocks.style.position = "fixed";
+    cloneRocks.style.animation = "none";
+    cloneRocks.style.zIndex = "2";
   }
-  
 }
