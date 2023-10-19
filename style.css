@@ -72,55 +72,61 @@
   transition: 0.8s ease;
 }
 
-.animaPaper{
-  animation: movePaper 1s ease ;
+.animaPaper {
+  animation: movePaper 1s ease;
   transform: translate(0px, 100px);
 }
 
 @keyframes movePaper {
   0% {
-      transform: translate(0, 0);
+    transform: translate(0, 0);
   }
   100% {
-      transform: translate(0px, 100px);
+    transform: translate(0px, 100px);
   }
 }
 
-.animaScissors{
-  animation: moveScissors 1s ease ;
+.animaScissors {
+  animation: moveScissors 1s ease;
   transform: translate(-290px, 100px);
 }
 
 @keyframes moveScissors {
   0% {
-      transform: translate(0, 0);
+    transform: translate(0, 0);
   }
   100% {
-      transform: translate(-290px, 100px);
+    transform: translate(-290px, 100px);
   }
 }
 
-
-.animaRock{
-  animation: moveRock 1s ease ;
+.animaRock {
+  animation: moveRock 1s ease;
   transform: translate(-155px, -180px);
 }
 
 @keyframes moveRock {
   0% {
-      transform: translate(0, 0);
+    transform: translate(0, 0);
   }
   100% {
-      transform: translate(-155px, -180px);
+    transform: translate(-155px, -180px);
   }
 }
 
-
-
-
-.ocult{
+.ocult {
   opacity: 0;
   pointer-events: none;
+  transition: opacity 3s ease-in-out;
+}
+.visible{
+  transition: opacity 3s ease-in-out;
+}
+
+.visible {
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 3s ease-in-out;
 }
 
 .circles {
@@ -138,10 +144,8 @@
   transition: 0.8s ease;
 }
 
-
-.picked{
+.picked {
   transition: 0.8s ease;
-
 }
 .father-circles {
   background-image: linear-gradient(
@@ -176,9 +180,6 @@
   transition: 0.8s ease;
   z-index: 200;
 }
-
-
-
 
 .father-circles-rock {
   background-image: linear-gradient(
@@ -216,7 +217,7 @@
   font-size: 14px;
   font-weight: 500;
 }
-.picked{
+.picked {
   position: relative;
   left: 8%;
   bottom: 19%;
@@ -228,7 +229,7 @@
   color: #dddddd;
 }
 
-.box-shadow{
+.box-shadow {
   width: 193px;
   height: 198px;
   display: flex;
@@ -242,25 +243,27 @@
   z-index: -1;
 }
 
-
-
-#cloneScissor, #clonePaper, #cloneRock{
-  animation: movePc 1s ease ;
-
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
+.cloned-item {
+  animation: fadeIn 1s;
+}
 
 @keyframes movePc {
   0% {
-      transform: translate(0, 0);
+    transform: translate(0, 0);
   }
   100% {
-      transform: translate(-155px, -180px);
+    transform: translate(-155px, -180px);
   }
 }
-
-
-
 
 @media (min-width: 600px) {
   .score {
@@ -340,7 +343,7 @@
   .game {
     padding-top: 50px;
   }
-  .picked{
+  .picked {
     position: relative;
     left: 23%;
     bottom: 14%;
