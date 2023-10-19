@@ -230,17 +230,18 @@
 }
 
 .box-shadow {
-  width: 193px;
-  height: 198px;
+
   display: flex;
   position: absolute;
-  left: 71%;
-  top: 32%;
+  left: 72%;
+  top: 33%;
   border-radius: 50%;
   background-color: #0000004a;
   opacity: 0;
   transition: 0.8s ease;
   z-index: -1;
+  width: 185px;
+  height: 185px;
 }
 
 @keyframes fadeIn {
