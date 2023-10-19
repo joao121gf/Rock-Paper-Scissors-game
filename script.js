@@ -25,7 +25,7 @@ function anime() {
     } else {
       boxShadow.style.opacity = 0;
     }
-    generateCircle();
+    generateCircle1();
   }
 
   if (this === scissors) {
@@ -44,7 +44,7 @@ function anime() {
     } else {
       boxShadow.style.opacity = 0;
     }
-    generateCircle();
+    generateCircle2();
   }
   if (this === rock) {
     this.classList.toggle("animaRock");
@@ -62,7 +62,7 @@ function anime() {
     } else {
       boxShadow.style.opacity = 0;
     }
-    generateCircle();
+    generateCircle3();
   }
 }
 
@@ -70,29 +70,28 @@ circles.forEach((i) => {
   i.addEventListener("click", anime);
 });
 
-function generateCircle() {
+function generateCircle1() {
   let genNumber = Math.floor(Math.random() * 3) + 1;
   if (genNumber === 1) {
     const clonePaper = paper.cloneNode(true);
     clonePaper.id = "clonePapers";
     options.appendChild(clonePaper);
     clonePapers.classList.remove("ocult");
-    clonePapers.style.left = "52%";
-    clonePapers.style.top = "18.3%";
+    clonePapers.style.left = "70.5%";
+    clonePapers.style.top = "16%";
     clonePapers.style.zIndex = "2";
-    clonePapers.style.position = "fixed";
+    clonePapers.style.position = "absolute";
     clonePapers.style.animation = "none";
-
   }
   if (genNumber === 2) {
     const cloneScissor = scissors.cloneNode(true);
     cloneScissor.id = "cloneScissors";
     options.appendChild(cloneScissor);
     cloneScissors.classList.remove("ocult");
-    cloneScissors.style.left = "52%";
-    cloneScissors.style.top = "27.3%";
-    clonePapers.style.zIndex = "2";
-    cloneScissors.style.position = "fixed";
+    cloneScissors.style.left = "70.8%";
+    cloneScissors.style.top = "29.3%";
+    cloneScissors.style.zIndex = "2";
+    cloneScissors.style.position = "absolute";
     cloneScissors.style.animation = "none";
   }
   if (genNumber === 3) {
@@ -100,9 +99,85 @@ function generateCircle() {
     cloneRock.id = "cloneRocks";
     options.appendChild(cloneRock);
     cloneRocks.classList.remove("ocult");
-    cloneRocks.style.left = "52%";
-    cloneRocks.style.top = "27%";
-    cloneRocks.style.position = "fixed";
+    cloneRocks.style.left = "71.5%";
+    cloneRocks.style.top = "29.1%";
+    cloneRocks.style.position = "absolute";
+    cloneRocks.style.animation = "none";
+    cloneRocks.style.zIndex = "2";
+  }
+}
+
+function generateCircle2() {
+  let genNumber = Math.floor(Math.random() * 3) + 1;
+  if (genNumber === 1) {
+    const clonePaper = paper.cloneNode(true);
+    clonePaper.id = "clonePapers";
+    options.appendChild(clonePaper);
+    clonePapers.classList.remove("ocult");
+    clonePapers.style.left = "70%";
+    clonePapers.style.top = "32.3%";
+    clonePapers.style.zIndex = "2";
+    clonePapers.style.position = "absolute";
+    clonePapers.style.animation = "none";
+  }
+  if (genNumber === 2) {
+    const cloneScissor = scissors.cloneNode(true);
+    cloneScissor.id = "cloneScissors";
+    options.appendChild(cloneScissor);
+    cloneScissors.classList.remove("ocult");
+    cloneScissors.style.left = "72%";
+    cloneScissors.style.top = "29.3%";
+    cloneScissors.style.zIndex = "2";
+    cloneScissors.style.position = "absolute";
+    cloneScissors.style.animation = "none";
+    cloneScissors.classList.remove("animaScissors");
+  }
+  if (genNumber === 3) {
+    const cloneRock = rock.cloneNode(true);
+    cloneRock.id = "cloneRocks";
+    options.appendChild(cloneRock);
+    cloneRocks.classList.remove("ocult");
+    cloneRocks.style.left = "72%";
+    cloneRocks.style.top = "29%";
+    cloneRocks.style.position = "absolute";
+    cloneRocks.style.animation = "none";
+    cloneRocks.style.zIndex = "2";
+  }
+}
+
+function generateCircle3() {
+  let genNumber = Math.floor(Math.random() * 3) + 1;
+  if (genNumber === 1) {
+    const clonePaper = paper.cloneNode(true);
+    clonePaper.id = "clonePapers";
+    options.appendChild(clonePaper);
+    clonePapers.classList.remove("ocult");
+    clonePapers.style.left = "70%";
+    clonePapers.style.top = "32.3%";
+    clonePapers.style.zIndex = "2";
+    clonePapers.style.position = "absolute";
+    clonePapers.style.animation = "none";
+  }
+  if (genNumber === 2) {
+    const cloneScissor = scissors.cloneNode(true);
+    cloneScissor.id = "cloneScissors";
+    options.appendChild(cloneScissor);
+    cloneScissors.classList.remove("ocult");
+    cloneScissors.style.left = "72%";
+    cloneScissors.style.top = "29.3%";
+    cloneScissors.style.zIndex = "2";
+    cloneScissors.style.position = "absolute";
+    cloneScissors.style.animation = "none";
+    cloneScissors.classList.remove("animaScissors");
+  }
+  if (genNumber === 3) {
+    const cloneRock = rock.cloneNode(true);
+    cloneRock.id = "cloneRocks";
+    options.appendChild(cloneRock);
+    cloneRocks.classList.remove("ocult");
+    cloneRocks.style.left = "153%";
+    cloneRocks.style.top = "59%";
+    cloneRocks.style.position = "absolute";
     cloneRocks.style.animation = "none";
     cloneRocks.style.zIndex = "2";
   }
