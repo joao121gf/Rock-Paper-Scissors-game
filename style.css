@@ -174,6 +174,7 @@
   right: -75%;
   bottom: 40px;
   transition: 0.8s ease;
+  z-index: 200;
 }
 
 .father-circles-rock {
@@ -223,6 +224,25 @@
   font-weight: 600;
   color: #dddddd;
 }
+
+.box-shadow{
+  width: 193px;
+  height: 198px;
+  display: flex;
+  position: absolute;
+  left: 71%;
+  top: 32%;
+  border-radius: 50%;
+  background-color: #0000004a;
+  opacity: 0;
+  transition: 0.8s ease;
+  z-index: -1;
+}
+
+
+
+
+
 @media (min-width: 600px) {
   .score {
     width: 500px;
