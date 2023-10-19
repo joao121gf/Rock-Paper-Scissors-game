@@ -71,6 +71,7 @@ window.addEventListener("load", function () {
         generateCircle(3);
       }, 1000);
     }
+    this.style.pointerEvents = 'none'
   }
 
   circles.forEach((i) => {
