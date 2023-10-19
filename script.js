@@ -25,7 +25,7 @@ function anime() {
     } else {
       boxShadow.style.opacity = 0;
     }
-    generateCircle1();
+    generateCircle(1);
   }
 
   if (this === scissors) {
@@ -44,7 +44,7 @@ function anime() {
     } else {
       boxShadow.style.opacity = 0;
     }
-    generateCircle2();
+    generateCircle(2);
   }
   if (this === rock) {
     this.classList.toggle("animaRock");
@@ -62,7 +62,7 @@ function anime() {
     } else {
       boxShadow.style.opacity = 0;
     }
-    generateCircle3();
+    generateCircle(3);
   }
 }
 
@@ -70,115 +70,76 @@ circles.forEach((i) => {
   i.addEventListener("click", anime);
 });
 
-function generateCircle1() {
-  let genNumber = Math.floor(Math.random() * 3) + 1;
-  if (genNumber === 1) {
-    const clonePaper = paper.cloneNode(true);
-    clonePaper.id = "clonePapers";
-    options.appendChild(clonePaper);
-    clonePapers.classList.remove("ocult");
-    clonePapers.style.left = "70.5%";
-    clonePapers.style.top = "16%";
-    clonePapers.style.zIndex = "2";
-    clonePapers.style.position = "absolute";
-    clonePapers.style.animation = "none";
+function generateCircle(choiceUser) {
+  const randomNumber = Math.floor(Math.random() * 3) + 1;
+  let cloneElement, cloneId, left, top;
+  if (choiceUser === 1){
+    if (randomNumber === 1) {
+      cloneElement = paper.cloneNode(true);
+      cloneId = "clonePapers";
+      left = "70%";
+      top = "16%";
+    } else if (randomNumber === 2) {
+      cloneElement = scissors.cloneNode(true);
+      cloneId = "cloneScissors";
+      left = "72%";
+      top = "29%";
+    } else {
+      cloneElement = rock.cloneNode(true);
+      cloneId = "cloneRocks";
+      left = "72%";
+      top = "29%";
+    }
   }
-  if (genNumber === 2) {
-    const cloneScissor = scissors.cloneNode(true);
-    cloneScissor.id = "cloneScissors";
-    options.appendChild(cloneScissor);
-    cloneScissors.classList.remove("ocult");
-    cloneScissors.style.left = "70.8%";
-    cloneScissors.style.top = "29.3%";
-    cloneScissors.style.zIndex = "2";
-    cloneScissors.style.position = "absolute";
-    cloneScissors.style.animation = "none";
+  if (choiceUser === 2){
+    if (randomNumber === 1) {
+      cloneElement = paper.cloneNode(true);
+      cloneId = "clonePapers";
+      left = "70%";
+      top = "32.3%";
+    } else if (randomNumber === 2) {
+      cloneElement = scissors.cloneNode(true);
+      cloneId = "cloneScissors";
+      left = "224%";
+      top = "13%";
+    } else {
+      cloneElement = rock.cloneNode(true);
+      cloneId = "cloneRocks";
+      left = "72%";
+      top = "29%";
+    }
   }
-  if (genNumber === 3) {
-    const cloneRock = rock.cloneNode(true);
-    cloneRock.id = "cloneRocks";
-    options.appendChild(cloneRock);
-    cloneRocks.classList.remove("ocult");
-    cloneRocks.style.left = "71.5%";
-    cloneRocks.style.top = "29.1%";
-    cloneRocks.style.position = "absolute";
-    cloneRocks.style.animation = "none";
-    cloneRocks.style.zIndex = "2";
+  if (choiceUser === 3){
+    if (randomNumber === 1) {
+      cloneElement = paper.cloneNode(true);
+      cloneId = "clonePapers";
+      left = "70%";
+      top = "32.3%";
+    } else if (randomNumber === 2) {
+      cloneElement = scissors.cloneNode(true);
+      cloneId = "cloneScissors";
+      left = "73%";
+      top = "29.3%";
+    } else {
+      cloneElement = rock.cloneNode(true);
+      cloneId = "cloneRocks";
+      left = "154%";
+      top = "58.6%";
+    }
+  }
+  
+
+  cloneElement.id = cloneId;
+  options.appendChild(cloneElement);
+  cloneElement.classList.remove("ocult");
+  cloneElement.style.left = left;
+  cloneElement.style.top = top;
+  cloneElement.style.zIndex = "2";
+  cloneElement.style.position = "absolute";
+  cloneElement.style.animation = "none";
+
+  if (choiceUser === "2") {
+    cloneElement.classList.remove("animaScissors");
   }
 }
 
-function generateCircle2() {
-  let genNumber = Math.floor(Math.random() * 3) + 1;
-  if (genNumber === 1) {
-    const clonePaper = paper.cloneNode(true);
-    clonePaper.id = "clonePapers";
-    options.appendChild(clonePaper);
-    clonePapers.classList.remove("ocult");
-    clonePapers.style.left = "70%";
-    clonePapers.style.top = "32.3%";
-    clonePapers.style.zIndex = "2";
-    clonePapers.style.position = "absolute";
-    clonePapers.style.animation = "none";
-  }
-  if (genNumber === 2) {
-    const cloneScissor = scissors.cloneNode(true);
-    cloneScissor.id = "cloneScissors";
-    options.appendChild(cloneScissor);
-    cloneScissors.classList.remove("ocult");
-    cloneScissors.style.left = "72%";
-    cloneScissors.style.top = "29.3%";
-    cloneScissors.style.zIndex = "2";
-    cloneScissors.style.position = "absolute";
-    cloneScissors.style.animation = "none";
-    cloneScissors.classList.remove("animaScissors");
-  }
-  if (genNumber === 3) {
-    const cloneRock = rock.cloneNode(true);
-    cloneRock.id = "cloneRocks";
-    options.appendChild(cloneRock);
-    cloneRocks.classList.remove("ocult");
-    cloneRocks.style.left = "72%";
-    cloneRocks.style.top = "29%";
-    cloneRocks.style.position = "absolute";
-    cloneRocks.style.animation = "none";
-    cloneRocks.style.zIndex = "2";
-  }
-}
-
-function generateCircle3() {
-  let genNumber = Math.floor(Math.random() * 3) + 1;
-  if (genNumber === 1) {
-    const clonePaper = paper.cloneNode(true);
-    clonePaper.id = "clonePapers";
-    options.appendChild(clonePaper);
-    clonePapers.classList.remove("ocult");
-    clonePapers.style.left = "70%";
-    clonePapers.style.top = "32.3%";
-    clonePapers.style.zIndex = "2";
-    clonePapers.style.position = "absolute";
-    clonePapers.style.animation = "none";
-  }
-  if (genNumber === 2) {
-    const cloneScissor = scissors.cloneNode(true);
-    cloneScissor.id = "cloneScissors";
-    options.appendChild(cloneScissor);
-    cloneScissors.classList.remove("ocult");
-    cloneScissors.style.left = "72%";
-    cloneScissors.style.top = "29.3%";
-    cloneScissors.style.zIndex = "2";
-    cloneScissors.style.position = "absolute";
-    cloneScissors.style.animation = "none";
-    cloneScissors.classList.remove("animaScissors");
-  }
-  if (genNumber === 3) {
-    const cloneRock = rock.cloneNode(true);
-    cloneRock.id = "cloneRocks";
-    options.appendChild(cloneRock);
-    cloneRocks.classList.remove("ocult");
-    cloneRocks.style.left = "153%";
-    cloneRocks.style.top = "59%";
-    cloneRocks.style.position = "absolute";
-    cloneRocks.style.animation = "none";
-    cloneRocks.style.zIndex = "2";
-  }
-}
