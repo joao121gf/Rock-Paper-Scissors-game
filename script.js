@@ -6,7 +6,7 @@ window.addEventListener("load", function () {
   const picked = document.querySelectorAll(".picked");
   const boxShadow = document.querySelector(".box-shadow");
   const options = document.querySelector(".options");
-
+  let globalChoice;
   const circles = document.querySelectorAll(".all");
 
   function anime() {
@@ -71,7 +71,7 @@ window.addEventListener("load", function () {
         generateCircle(3);
       }, 1000);
     }
-    this.style.pointerEvents = 'none'
+    this.style.pointerEvents = "none";
   }
 
   circles.forEach((i) => {
@@ -84,7 +84,7 @@ window.addEventListener("load", function () {
     if (choiceUser === 1) {
       if (randomNumber === 1) {
         cloneElement = paper.cloneNode(true);
-        
+
         let firstChild = cloneElement.firstElementChild;
         firstChild.textContent = "SYSTEM CHOICE";
         firstChild.style.opacity = 1;
@@ -95,7 +95,6 @@ window.addEventListener("load", function () {
       } else if (randomNumber === 2) {
         cloneElement = scissors.cloneNode(true);
 
-
         let firstChild = cloneElement.firstElementChild;
         firstChild.textContent = "SYSTEM CHOICE";
         firstChild.style.opacity = 1;
@@ -105,7 +104,6 @@ window.addEventListener("load", function () {
         top = "29%";
       } else {
         cloneElement = rock.cloneNode(true);
-
 
         let firstChild = cloneElement.firstElementChild;
         firstChild.textContent = "SYSTEM CHOICE";
@@ -182,15 +180,35 @@ window.addEventListener("load", function () {
     cloneElement.id = cloneId;
     options.appendChild(cloneElement);
     cloneElement.classList.add("visible");
-    cloneElement.classList.add('cloned-item')
+    cloneElement.classList.add("cloned-item");
     cloneElement.style.left = left;
     cloneElement.style.top = top;
     cloneElement.style.zIndex = "2";
     cloneElement.style.position = "absolute";
 
-
     if (choiceUser === "2") {
       cloneElement.classList.remove("animaScissors");
     }
+    globalChoice = choiceUser;
+    function whoWin() {
+      let i = 1;
+      let result;
+      for (1; i < 3 + 1; i++) {
+        if (choiceUser === randomNumber) {
+          result = "draw";
+        } else if (
+          (choiceUser === 1 && randomNumber === 2) ||
+          (choiceUser === 2 && randomNumber === 3) ||
+          (choiceUser === 3 && randomNumber === 1)
+        ) {
+          result = "lose";
+        } else {
+          result = "win";
+        }
+      }
+      return result;
+    }
+    let resultGame = whoWin();
+    
   }
 });
