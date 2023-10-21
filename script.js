@@ -191,6 +191,11 @@ window.addEventListener("load", function () {
       cloneElement.classList.remove("animaScissors");
     }
     globalChoice = choiceUser;
+    paper.style.animation = "";
+    paper.addEventListener("animationend", () => {
+      const estadoFinal = window.getComputedStyle(paper);
+      paper.style.transform = estadoFinal.transform + " translateX(-100px)";
+    });
     function whoWin() {
       let i = 1;
       let result;
@@ -214,10 +219,9 @@ window.addEventListener("load", function () {
           i.classList.add("moveUser");
         }, 1000);
       }
-      function abv(){
+      function abv() {
         if (choiceUser === 1) {
           setTime(paper);
-  
         } else if (choiceUser === 2) {
           setTime(scissors);
         } else {
@@ -230,7 +234,6 @@ window.addEventListener("load", function () {
           cloneElement.classList.add("winnerPc");
         }, 1000);
         abv();
-        
       }
 
       if (result === "lose") {
@@ -238,21 +241,12 @@ window.addEventListener("load", function () {
           cloneElement.classList.add("winnerPc");
         }, 1000);
         abv();
-
       } else if (result === "win") {
         setTimeout(function () {
           cloneElement.classList.add("winnerPc");
         }, 1000);
         abv();
-
       }
-      paper.style.animation = ''
-      paper.addEventListener('animationend', () => {
-        const estadoFinal = window.getComputedStyle(paper);
-        paper.style.transform = estadoFinal.transform + ' translateX(-100px)';
-      })
-
-
 
       return result;
     }
