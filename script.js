@@ -185,6 +185,7 @@ window.addEventListener("load", function () {
     cloneElement.style.top = top;
     cloneElement.style.zIndex = "2";
     cloneElement.style.position = "absolute";
+    boxShadow.style.opacity = 0;
 
     if (choiceUser === "2") {
       cloneElement.classList.remove("animaScissors");
@@ -206,9 +207,55 @@ window.addEventListener("load", function () {
           result = "win";
         }
       }
+      console.log(result);
+
+      function setTime(i) {
+        setTimeout(function () {
+          i.classList.add("moveUser");
+        }, 1000);
+      }
+      function abv(){
+        if (choiceUser === 1) {
+          setTime(paper);
+  
+        } else if (choiceUser === 2) {
+          setTime(scissors);
+        } else {
+          setTime(rock);
+        }
+      }
+
+      if (result === "draw") {
+        setTimeout(function () {
+          cloneElement.classList.add("winnerPc");
+        }, 1000);
+        abv();
+        
+      }
+
+      if (result === "lose") {
+        setTimeout(function () {
+          cloneElement.classList.add("winnerPc");
+        }, 1000);
+        abv();
+
+      } else if (result === "win") {
+        setTimeout(function () {
+          cloneElement.classList.add("winnerPc");
+        }, 1000);
+        abv();
+
+      }
+      paper.style.animation = ''
+      paper.addEventListener('animationend', () => {
+        const estadoFinal = window.getComputedStyle(paper);
+        paper.style.transform = estadoFinal.transform + ' translateX(-100px)';
+      })
+
+
+
       return result;
     }
     let resultGame = whoWin();
-    
   }
 });
