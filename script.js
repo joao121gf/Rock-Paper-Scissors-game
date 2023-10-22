@@ -18,7 +18,6 @@ window.addEventListener("load", function () {
 
     if (this === paper) {
       this.classList.toggle("animaPaper");
-      paper.style.animation = "";
       paper.addEventListener("animationend", () => {
         setTimeout(() => {
           handleSecondAnimation(paper);
@@ -105,6 +104,7 @@ window.addEventListener("load", function () {
   function generateCircle(choiceUser) {
     const randomNumber = Math.floor(Math.random() * 3) + 1;
     let cloneElement, cloneId, left, top;
+    
     if (choiceUser === 1) {
       if (randomNumber === 1) {
         cloneElement = paper.cloneNode(true);
@@ -116,6 +116,7 @@ window.addEventListener("load", function () {
         cloneId = "clonePapers";
         left = "70%";
         top = "16%";
+        anima(cloneElement)
       } else if (randomNumber === 2) {
         cloneElement = scissors.cloneNode(true);
 
@@ -125,7 +126,9 @@ window.addEventListener("load", function () {
         firstChild.style.left = "15%";
         cloneId = "cloneScissors";
         left = "72%";
-        top = "29%";
+        top = "13%";
+        anima(cloneElement)
+
       } else {
         cloneElement = rock.cloneNode(true);
 
@@ -135,7 +138,9 @@ window.addEventListener("load", function () {
         firstChild.style.left = "15%";
         cloneId = "cloneRocks";
         left = "72%";
-        top = "29%";
+        top = "13%";
+        anima(cloneElement)
+
       }
     }
     if (choiceUser === 2) {
@@ -147,7 +152,9 @@ window.addEventListener("load", function () {
         firstChild.style.left = "15%";
         cloneId = "clonePapers";
         left = "70%";
-        top = "32.3%";
+        top = "16.3%";
+        anima(cloneElement)
+
       } else if (randomNumber === 2) {
         cloneElement = scissors.cloneNode(true);
         let firstChild = cloneElement.firstElementChild;
@@ -157,6 +164,8 @@ window.addEventListener("load", function () {
         cloneId = "cloneScissors";
         left = "224%";
         top = "13%";
+        anima(cloneElement)
+
       } else {
         cloneElement = rock.cloneNode(true);
         let firstChild = cloneElement.firstElementChild;
@@ -165,7 +174,9 @@ window.addEventListener("load", function () {
         firstChild.style.left = "15%";
         cloneId = "cloneRocks";
         left = "72%";
-        top = "29%";
+        top = "13%";
+        anima(cloneElement)
+
       }
     }
     if (choiceUser === 3) {
@@ -178,17 +189,20 @@ window.addEventListener("load", function () {
 
         cloneId = "clonePapers";
         left = "70%";
-        top = "32.3%";
+        top = "16.3%";
+        anima(cloneElement)
+
       } else if (randomNumber === 2) {
         cloneElement = scissors.cloneNode(true);
         let firstChild = cloneElement.firstElementChild;
         firstChild.textContent = "SYSTEM CHOICE";
         firstChild.style.opacity = 1;
         firstChild.style.left = "15%";
+        anima(cloneElement)
 
         cloneId = "cloneScissors";
         left = "73%";
-        top = "29.3%";
+        top = "13.3%";
       } else {
         cloneElement = rock.cloneNode(true);
         let firstChild = cloneElement.firstElementChild;
@@ -198,7 +212,21 @@ window.addEventListener("load", function () {
         cloneId = "cloneRocks";
         left = "154%";
         top = "58.6%";
+        anima(cloneElement)
+
       }
+    }
+  
+    function handleSecondAnimationPc(i) {
+      const estadoFinal = window.getComputedStyle(i);
+      i.style.transform =
+        estadoFinal.transform + " scale(1.2) translateX(50px)";
+    }
+    cloneElement.addEventListener("animationend", () => {
+      handleSecondAnimationPc(cloneElement);
+    });
+    function anima(i){
+      i.classList.add('animaPaper')
     }
 
     cloneElement.id = cloneId;
@@ -211,15 +239,7 @@ window.addEventListener("load", function () {
     cloneElement.style.position = "absolute";
     boxShadow.style.opacity = 0;
 
-    cloneElement.style.animation = "";
-    function handleSecondAnimationPc(i) {
-      const estadoFinal = window.getComputedStyle(i);
-      i.style.transform =
-        estadoFinal.transform + " scale(1.2) translateX(50px)";
-    }
-    cloneElement.addEventListener("animationend", () => {
-      handleSecondAnimationPc(cloneElement);
-    });
+    
 
     if (choiceUser === "2") {
       cloneElement.classList.remove("animaScissors");
