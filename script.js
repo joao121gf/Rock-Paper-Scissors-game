@@ -10,18 +10,17 @@ window.addEventListener("load", function () {
   const circles = document.querySelectorAll(".all");
 
   function anime() {
-    function handleSecondAnimation() {
-      const estadoFinal = window.getComputedStyle(paper);
-      paper.style.transform = estadoFinal.transform + " translateX(-100px)";
-      console.log("Segunda animação");
+    function handleSecondAnimation(i) {
+      const estadoFinal = window.getComputedStyle(i);
+      i.style.transform = estadoFinal.transform + " translateX(-100px)";
     }
     if (this === paper) {
       this.classList.toggle("animaPaper");
       paper.style.animation = "";
       paper.addEventListener("animationend", () => {
         setTimeout(() => {
-          handleSecondAnimation(); // Dispare a segunda animação após um pequeno atraso
-        }, 1000); // Ajuste o valor do atraso conforme necessário
+          handleSecondAnimation(paper); 
+        }, 1000); 
       });
       rock.classList.toggle("ocult");
       scissors.classList.toggle("ocult");
@@ -44,6 +43,12 @@ window.addEventListener("load", function () {
 
     if (this === scissors) {
       this.classList.toggle("animaScissors");
+      scissors.style.animation = "";
+      scissors.addEventListener("animationend", () => {
+        setTimeout(() => {
+          handleSecondAnimation(scissors); 
+        }, 1000); 
+      });
       rock.classList.toggle("ocult");
       paper.classList.toggle("ocult");
       triangle.classList.toggle("ocult");
@@ -64,6 +69,12 @@ window.addEventListener("load", function () {
     }
     if (this === rock) {
       this.classList.toggle("animaRock");
+      rock.style.animation = "";
+      rock.addEventListener("animationend", () => {
+        setTimeout(() => {
+          handleSecondAnimation(rock); 
+        }, 1000); 
+      });
       scissors.classList.toggle("ocult");
       paper.classList.toggle("ocult");
       triangle.classList.toggle("ocult");
