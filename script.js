@@ -10,8 +10,19 @@ window.addEventListener("load", function () {
   const circles = document.querySelectorAll(".all");
 
   function anime() {
+    function handleSecondAnimation() {
+      const estadoFinal = window.getComputedStyle(paper);
+      paper.style.transform = estadoFinal.transform + " translateX(-100px)";
+      console.log("Segunda animação");
+    }
     if (this === paper) {
       this.classList.toggle("animaPaper");
+      paper.style.animation = "";
+      paper.addEventListener("animationend", () => {
+        setTimeout(() => {
+          handleSecondAnimation(); // Dispare a segunda animação após um pequeno atraso
+        }, 1000); // Ajuste o valor do atraso conforme necessário
+      });
       rock.classList.toggle("ocult");
       scissors.classList.toggle("ocult");
       triangle.classList.toggle("ocult");
@@ -214,10 +225,9 @@ window.addEventListener("load", function () {
           i.classList.add("moveUser");
         }, 1000);
       }
-      function abv(){
+      function abv() {
         if (choiceUser === 1) {
           setTime(paper);
-  
         } else if (choiceUser === 2) {
           setTime(scissors);
         } else {
@@ -230,7 +240,6 @@ window.addEventListener("load", function () {
           cloneElement.classList.add("winnerPc");
         }, 1000);
         abv();
-        
       }
 
       if (result === "lose") {
@@ -238,21 +247,14 @@ window.addEventListener("load", function () {
           cloneElement.classList.add("winnerPc");
         }, 1000);
         abv();
-
       } else if (result === "win") {
         setTimeout(function () {
           cloneElement.classList.add("winnerPc");
         }, 1000);
         abv();
-
       }
-      paper.style.animation = ''
-      paper.addEventListener('animationend', () => {
-        const estadoFinal = window.getComputedStyle(paper);
-        paper.style.transform = estadoFinal.transform + ' translateX(-100px)';
-      })
 
-
+      
 
       return result;
     }
