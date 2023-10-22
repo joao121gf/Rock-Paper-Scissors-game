@@ -8,6 +8,7 @@ window.addEventListener("load", function () {
   const options = document.querySelector(".options");
   let globalChoice;
   const circles = document.querySelectorAll(".all");
+  const results = document.querySelector(".results");
 
   function anime() {
     function handleSecondAnimation(i) {
@@ -104,7 +105,7 @@ window.addEventListener("load", function () {
   function generateCircle(choiceUser) {
     const randomNumber = Math.floor(Math.random() * 3) + 1;
     let cloneElement, cloneId, left, top;
-    
+
     if (choiceUser === 1) {
       if (randomNumber === 1) {
         cloneElement = paper.cloneNode(true);
@@ -116,7 +117,7 @@ window.addEventListener("load", function () {
         cloneId = "clonePapers";
         left = "70%";
         top = "16%";
-        anima(cloneElement)
+        anima(cloneElement);
       } else if (randomNumber === 2) {
         cloneElement = scissors.cloneNode(true);
 
@@ -127,8 +128,7 @@ window.addEventListener("load", function () {
         cloneId = "cloneScissors";
         left = "72%";
         top = "13%";
-        anima(cloneElement)
-
+        anima(cloneElement);
       } else {
         cloneElement = rock.cloneNode(true);
 
@@ -139,8 +139,7 @@ window.addEventListener("load", function () {
         cloneId = "cloneRocks";
         left = "72%";
         top = "13%";
-        anima(cloneElement)
-
+        anima(cloneElement);
       }
     }
     if (choiceUser === 2) {
@@ -153,8 +152,7 @@ window.addEventListener("load", function () {
         cloneId = "clonePapers";
         left = "70%";
         top = "16.3%";
-        anima(cloneElement)
-
+        anima(cloneElement);
       } else if (randomNumber === 2) {
         cloneElement = scissors.cloneNode(true);
         let firstChild = cloneElement.firstElementChild;
@@ -164,8 +162,7 @@ window.addEventListener("load", function () {
         cloneId = "cloneScissors";
         left = "224%";
         top = "13%";
-        anima(cloneElement)
-
+        anima(cloneElement);
       } else {
         cloneElement = rock.cloneNode(true);
         let firstChild = cloneElement.firstElementChild;
@@ -175,8 +172,7 @@ window.addEventListener("load", function () {
         cloneId = "cloneRocks";
         left = "72%";
         top = "13%";
-        anima(cloneElement)
-
+        anima(cloneElement);
       }
     }
     if (choiceUser === 3) {
@@ -190,15 +186,14 @@ window.addEventListener("load", function () {
         cloneId = "clonePapers";
         left = "70%";
         top = "16.3%";
-        anima(cloneElement)
-
+        anima(cloneElement);
       } else if (randomNumber === 2) {
         cloneElement = scissors.cloneNode(true);
         let firstChild = cloneElement.firstElementChild;
         firstChild.textContent = "SYSTEM CHOICE";
         firstChild.style.opacity = 1;
         firstChild.style.left = "15%";
-        anima(cloneElement)
+        anima(cloneElement);
 
         cloneId = "cloneScissors";
         left = "73%";
@@ -212,11 +207,10 @@ window.addEventListener("load", function () {
         cloneId = "cloneRocks";
         left = "154%";
         top = "58.6%";
-        anima(cloneElement)
-
+        anima(cloneElement);
       }
     }
-  
+
     function handleSecondAnimationPc(i) {
       const estadoFinal = window.getComputedStyle(i);
       i.style.transform =
@@ -225,8 +219,8 @@ window.addEventListener("load", function () {
     cloneElement.addEventListener("animationend", () => {
       handleSecondAnimationPc(cloneElement);
     });
-    function anima(i){
-      i.classList.add('animaPaper')
+    function anima(i) {
+      i.classList.add("animaPaper");
     }
 
     cloneElement.id = cloneId;
@@ -239,12 +233,13 @@ window.addEventListener("load", function () {
     cloneElement.style.position = "absolute";
     boxShadow.style.opacity = 0;
 
-    
-
     if (choiceUser === "2") {
       cloneElement.classList.remove("animaScissors");
     }
     globalChoice = choiceUser;
+    let score = 0;
+    let winner;
+
     function whoWin() {
       let i = 1;
       let result;
@@ -261,7 +256,7 @@ window.addEventListener("load", function () {
           result = "win";
         }
       }
-      console.log(result);
+      winner = result;
 
       function setTime(i) {
         setTimeout(function () {
@@ -289,6 +284,7 @@ window.addEventListener("load", function () {
         setTimeout(function () {
           cloneElement.classList.add("winnerPc");
         }, 1000);
+
         abv();
       } else if (result === "win") {
         setTimeout(function () {
@@ -297,8 +293,18 @@ window.addEventListener("load", function () {
         abv();
       }
 
-      return result;
+      return winner;
     }
-    let resultGame = whoWin();
+    winner = whoWin();
+    console.log(winner);
+    if (winner === "win") {
+      score += 1;
+      results.textContent = score;
+    } else if (winner === "lose") {
+      if (score > 0) {
+        score -= 1;
+        results.textContent = score;
+      }
+    }
   }
 });
