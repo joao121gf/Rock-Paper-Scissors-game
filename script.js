@@ -12,15 +12,17 @@ window.addEventListener("load", function () {
   function anime() {
     function handleSecondAnimation(i) {
       const estadoFinal = window.getComputedStyle(i);
-      i.style.transform = estadoFinal.transform + " translateX(-100px)";
+      i.style.transform =
+        estadoFinal.transform + " scale(1.2) translateX(-50px)";
     }
+
     if (this === paper) {
       this.classList.toggle("animaPaper");
       paper.style.animation = "";
       paper.addEventListener("animationend", () => {
         setTimeout(() => {
-          handleSecondAnimation(paper); 
-        }, 1000); 
+          handleSecondAnimation(paper);
+        }, 1000);
       });
       rock.classList.toggle("ocult");
       scissors.classList.toggle("ocult");
@@ -46,8 +48,8 @@ window.addEventListener("load", function () {
       scissors.style.animation = "";
       scissors.addEventListener("animationend", () => {
         setTimeout(() => {
-          handleSecondAnimation(scissors); 
-        }, 1000); 
+          handleSecondAnimation(scissors);
+        }, 1000);
       });
       rock.classList.toggle("ocult");
       paper.classList.toggle("ocult");
@@ -72,8 +74,8 @@ window.addEventListener("load", function () {
       rock.style.animation = "";
       rock.addEventListener("animationend", () => {
         setTimeout(() => {
-          handleSecondAnimation(rock); 
-        }, 1000); 
+          handleSecondAnimation(rock);
+        }, 1000);
       });
       scissors.classList.toggle("ocult");
       paper.classList.toggle("ocult");
@@ -209,6 +211,16 @@ window.addEventListener("load", function () {
     cloneElement.style.position = "absolute";
     boxShadow.style.opacity = 0;
 
+    cloneElement.style.animation = "";
+    function handleSecondAnimationPc(i) {
+      const estadoFinal = window.getComputedStyle(i);
+      i.style.transform =
+        estadoFinal.transform + " scale(1.2) translateX(50px)";
+    }
+    cloneElement.addEventListener("animationend", () => {
+      handleSecondAnimationPc(cloneElement);
+    });
+
     if (choiceUser === "2") {
       cloneElement.classList.remove("animaScissors");
     }
@@ -264,8 +276,6 @@ window.addEventListener("load", function () {
         }, 1000);
         abv();
       }
-
-      
 
       return result;
     }
