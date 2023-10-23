@@ -9,7 +9,6 @@ window.addEventListener("load", function () {
   let globalChoice;
   const circles = document.querySelectorAll(".all");
   const results = document.querySelector(".results");
- 
 
   function anime() {
     function handleSecondAnimation(i) {
@@ -103,11 +102,7 @@ window.addEventListener("load", function () {
     i.addEventListener("click", anime);
   });
 
-
-
   function generateCircle(choiceUser) {
-    
-
     const randomNumber = Math.floor(Math.random() * 3) + 1;
     let cloneElement, cloneId, left, top;
 
@@ -214,7 +209,6 @@ window.addEventListener("load", function () {
         anima(cloneElement);
       }
     }
-
 
     function handleSecondAnimationPc(i) {
       const estadoFinal = window.getComputedStyle(i);

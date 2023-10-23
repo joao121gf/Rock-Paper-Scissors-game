@@ -287,13 +287,42 @@
   animation: moveWinnerPc .5s ease-in-out forwards;
 } */
 
-.winner{
+.winner {
   /* border: 10px solid blue; */
 }
 
 /* .moveUser {
   animation: moveWinnerUser .5s ease-in-out forwards;
 } */
+
+.btn {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+  position: relative;
+  bottom: 79px;
+}
+.btn-play {
+  padding: 10px;
+  background-color: #dddddd;
+  border-radius: 6px;
+  color: hsl(229, 25%, 31%);
+  font-weight: 600;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.btn-play:hover{
+  color: #9d1736;
+}
+
+.btn p {
+  font-size: 55px;
+  font-weight: 700;
+  transform: scaleY(1.2);
+  color: #dddddd;
+}
 
 @media (min-width: 600px) {
   .score {
