@@ -324,6 +324,21 @@
   color: #dddddd;
 }
 
+/* .sss{
+  content: '';
+  height: 190px;
+  width: 190px;
+  border-radius: 50%;
+  right: 78%;
+  bottom: -98px;
+  transition: 0.8s ease;
+  position: fixed;
+  left: 37.2%;
+  bottom: 59.6%;
+  background: aqua;
+
+} */
+
 @media (min-width: 600px) {
   .score {
     width: 500px;

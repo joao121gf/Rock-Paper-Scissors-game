@@ -9,6 +9,7 @@ window.addEventListener("load", function () {
   let globalChoice;
   const circles = document.querySelectorAll(".all");
   const results = document.querySelector(".results");
+  const btn = this.document.querySelector(".btn");
 
   function anime() {
     function handleSecondAnimation(i) {
@@ -232,9 +233,6 @@ window.addEventListener("load", function () {
     cloneElement.style.position = "absolute";
     boxShadow.style.opacity = 0;
 
-    if (choiceUser === "2") {
-      cloneElement.classList.remove("animaScissors");
-    }
     globalChoice = choiceUser;
     let score = 0;
     let winner;
@@ -305,5 +303,36 @@ window.addEventListener("load", function () {
         results.textContent = score;
       }
     }
+    function reset() {
+      let c = 1;
+      console.log("funcionando");
+      if (choiceUser === 1) {
+        paper.style.transform = "scale(1) translateX(0px)";
+        paper.style.pointerEvents = "auto";
+        cloneElement.remove();
+        paper.classList.add("animaPaper");
+        triangle.classList.remove("ocult");
+        scissors.classList.remove("ocult");
+        rock.classList.remove("ocult");
+
+      } else if (choiceUser === 2) {
+        scissors.style.transform = "scale(1) translateX(0px)";
+        scissors.style.pointerEvents = "auto";
+        cloneElement.remove();
+        paper.classList.add("animaPaper");
+        triangle.classList.remove("ocult");
+        paper.classList.remove("ocult");
+        rock.classList.remove("ocult");
+
+      } else {
+        rock.style.transform = "scale(1) translateX(0px)";
+        rock.style.pointerEvents = "auto";
+        cloneElement.remove();
+        paper.classList.remove("ocult");
+        scissors.classList.remove("ocult");
+
+      }
+    }
+    btn.addEventListener("click", reset);
   }
 });
