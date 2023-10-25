@@ -229,6 +229,8 @@ window.addEventListener("load", function () {
     });
     function anima(i) {
       i.classList.add("animaPaper");
+      i.style.transform = "translate(0px, 100px)";
+
     }
 
     cloneElement.id = cloneId;
@@ -318,6 +320,7 @@ window.addEventListener("load", function () {
       elemento.remove();
     });
 
+    
     paper.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
     scissors.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
     rock.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
