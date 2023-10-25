@@ -11,16 +11,21 @@ window.addEventListener("load", function () {
   const results = document.querySelector(".results");
   const btn = this.document.querySelector(".btn");
 
-
   function anime() {
     function handleSecondAnimation(i) {
       const estadoFinal = window.getComputedStyle(i);
+
       i.style.transform =
         estadoFinal.transform + " scale(1.2) translateX(-50px)";
+      i.classList.add('animaPaper')
+      
+      
     }
 
     if (this === paper) {
+      paper.style.transform = 'translate(0px, 100px)';
       this.classList.toggle("animaPaper");
+
       paper.addEventListener("animationend", () => {
         setTimeout(() => {
           handleSecondAnimation(paper);
@@ -306,30 +311,27 @@ window.addEventListener("load", function () {
     }
   }
   function reset() {
-    paper.style.transform = "scale(1) translateX(0px)";
-    scissors.style.transform = "scale(1) translateX(0px)";
-    rock.style.transform = "scale(1) translateX(0px)";
-
     const elementosClonados = document.querySelectorAll(".cloned-item");
     elementosClonados.forEach(function (elemento) {
       elemento.remove();
     });
-
+    
+    paper.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
+    paper.classList.remove('moveUser')
+    
     triangle.classList.remove("ocult");
     paper.classList.remove("ocult");
-    paper.classList.remove("animaPaper");
+    paper.classList.toggle("animaPaper");
 
+    scissors.style.animation = "none";
     scissors.classList.remove("ocult");
     scissors.classList.remove("animaScissors");
 
     rock.classList.remove("ocult");
     rock.classList.remove("animaRock");
 
-
-
     circles.forEach((circle) => {
       circle.style.pointerEvents = "auto";
-      circle.classList.remove('moveUser')
     });
   }
 
