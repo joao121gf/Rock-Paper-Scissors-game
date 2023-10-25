@@ -229,8 +229,12 @@ window.addEventListener("load", function () {
     });
     function anima(i) {
       i.classList.add("animaPaper");
+      if (randomNumber === 2) {
+        i.style.transform = "translate(-290px, 100px)";
+      } else if (randomNumber === 3) {
+        i.style.transform = "translate(0px, 100px)";
+      }
       i.style.transform = "translate(0px, 100px)";
-
     }
 
     cloneElement.id = cloneId;
@@ -320,7 +324,6 @@ window.addEventListener("load", function () {
       elemento.remove();
     });
 
-    
     paper.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
     scissors.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
     rock.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
