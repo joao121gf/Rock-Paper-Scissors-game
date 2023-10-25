@@ -17,18 +17,16 @@ window.addEventListener("load", function () {
 
       i.style.transform =
         estadoFinal.transform + " scale(1.2) translateX(-50px)";
-      i.classList.add('animaPaper')
-      
-      
     }
 
     if (this === paper) {
-      paper.style.transform = 'translate(0px, 100px)';
+      paper.style.transform = "translate(0px, 100px)";
       this.classList.toggle("animaPaper");
 
       paper.addEventListener("animationend", () => {
         setTimeout(() => {
           handleSecondAnimation(paper);
+          paper.classList.add("animaPaper");
         }, 1000);
       });
       rock.classList.toggle("ocult");
@@ -51,11 +49,13 @@ window.addEventListener("load", function () {
     }
 
     if (this === scissors) {
+      scissors.style.transform = "translate( -290px, 100px)";
       this.classList.toggle("animaScissors");
       scissors.style.animation = "";
       scissors.addEventListener("animationend", () => {
         setTimeout(() => {
           handleSecondAnimation(scissors);
+          scissors.classList.add("animaScissors");
         }, 1000);
       });
       rock.classList.toggle("ocult");
@@ -77,11 +77,13 @@ window.addEventListener("load", function () {
       }, 1000);
     }
     if (this === rock) {
+      rock.style.transform = "translate(-155px, -180px)";
       this.classList.toggle("animaRock");
       rock.style.animation = "";
       rock.addEventListener("animationend", () => {
         setTimeout(() => {
           handleSecondAnimation(rock);
+          rock.classList.add("animaRock");
         }, 1000);
       });
       scissors.classList.toggle("ocult");
@@ -315,15 +317,16 @@ window.addEventListener("load", function () {
     elementosClonados.forEach(function (elemento) {
       elemento.remove();
     });
-    
+
     paper.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
-    paper.classList.remove('moveUser')
-    
+    scissors.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
+    rock.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
+
     triangle.classList.remove("ocult");
+
     paper.classList.remove("ocult");
     paper.classList.toggle("animaPaper");
 
-    scissors.style.animation = "none";
     scissors.classList.remove("ocult");
     scissors.classList.remove("animaScissors");
 
@@ -332,6 +335,7 @@ window.addEventListener("load", function () {
 
     circles.forEach((circle) => {
       circle.style.pointerEvents = "auto";
+      circle.classList.remove("moveUser");
     });
   }
 
