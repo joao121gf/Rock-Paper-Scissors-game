@@ -197,6 +197,8 @@ window.addEventListener("load", function () {
         anima(cloneElement);
       } else if (randomNumber === 2) {
         cloneElement = scissors.cloneNode(true);
+        cloneElement.style.transform = "translate(-155px, -180px)";
+
         let firstChild = cloneElement.firstElementChild;
         firstChild.textContent = "SYSTEM CHOICE";
         firstChild.style.opacity = 1;
@@ -236,6 +238,9 @@ window.addEventListener("load", function () {
       }
       if (randomNumber === 1) {
         i.style.transform = "translate(0px, 100px)";
+      }
+      if (randomNumber === 3) {
+        i.style.transform = "translate(-155px, -180px)";
       }
     }
 
