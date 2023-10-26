@@ -10,6 +10,7 @@ window.addEventListener("load", function () {
   const circles = document.querySelectorAll(".all");
   const results = document.querySelector(".results");
   const btn = this.document.querySelector(".btn");
+  let score = 0;
 
   function anime() {
     function handleSecondAnimation(i) {
@@ -258,24 +259,21 @@ window.addEventListener("load", function () {
     boxShadow.style.opacity = 0;
 
     globalChoice = choiceUser;
-    let score = 0;
     let winner;
 
     function whoWin() {
       let i = 1;
       let result;
-      for (1; i < 3 + 1; i++) {
-        if (choiceUser === randomNumber) {
-          result = "draw";
-        } else if (
-          (choiceUser === 1 && randomNumber === 2) ||
-          (choiceUser === 2 && randomNumber === 3) ||
-          (choiceUser === 3 && randomNumber === 1)
-        ) {
-          result = "lose";
-        } else {
-          result = "win";
-        }
+      if (choiceUser === randomNumber) {
+        result = "draw";
+      } else if (
+        (choiceUser === 1 && randomNumber === 2) ||
+        (choiceUser === 2 && randomNumber === 3) ||
+        (choiceUser === 3 && randomNumber === 1)
+      ) {
+        result = "lose";
+      } else {
+        result = "win";
       }
       winner = result;
 
@@ -294,42 +292,28 @@ window.addEventListener("load", function () {
         }
       }
 
-      if (result === "draw") {
+      if (result === "draw" || result === "lose" || result === "win") {
         setTimeout(function () {
           cloneElement.classList.add("winnerPc");
         }, 1000);
         abv();
       }
-
-      if (result === "lose") {
-        setTimeout(function () {
-          cloneElement.classList.add("winnerPc");
-        }, 1000);
-
-        abv();
-      } else if (result === "win") {
-        setTimeout(function () {
-          cloneElement.classList.add("winnerPc");
-        }, 1000);
-        abv();
+      if (winner === "win") {
+        score += 1;
+        results.textContent = score;
+      } else if (winner === "lose") {
+        if (score > 0) {
+          score -= 1;
+          results.textContent = score;
+        }
       }
 
       return winner;
     }
     winner = whoWin();
-    console.log(winner);
-    if (winner === "win") {
-      score += 1;
-      results.textContent = score;
-    } else if (winner === "lose") {
-      if (score > 0) {
-        score -= 1;
-        results.textContent = score;
-      }
-    }
+    console.log(`${winner} e ${score}`);
   }
   function reset() {
-
     picked.forEach((i) => {
       i.style.transition = "none";
       i.classList.add("ocult");
@@ -344,7 +328,6 @@ window.addEventListener("load", function () {
     rock.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
     triangle.classList.remove("ocult");
 
-    
     paper.classList.remove("ocult");
     paper.classList.remove("animaPaper");
 
