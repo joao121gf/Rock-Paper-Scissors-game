@@ -34,7 +34,8 @@ window.addEventListener("load", function () {
       triangle.classList.toggle("ocult");
       picked.forEach((i) => {
         setTimeout(function () {
-          i.classList.toggle("ocult");
+          i.style.transition = "0.8s ease";
+          i.classList.remove("ocult");
         }, 300);
       });
       if (this.classList.contains("animaPaper")) {
@@ -63,7 +64,8 @@ window.addEventListener("load", function () {
       triangle.classList.toggle("ocult");
       picked.forEach((i) => {
         setTimeout(function () {
-          i.classList.toggle("ocult");
+          i.style.transition = "0.8s ease";
+          i.classList.remove("ocult");
         }, 300);
       });
       if (this.classList.contains("animaScissors")) {
@@ -91,7 +93,8 @@ window.addEventListener("load", function () {
       triangle.classList.toggle("ocult");
       picked.forEach((i) => {
         setTimeout(function () {
-          i.classList.toggle("ocult");
+          i.style.transition = "0.8s ease";
+          i.classList.remove("ocult");
         }, 300);
       });
       if (this.classList.contains("animaRock")) {
@@ -208,7 +211,7 @@ window.addEventListener("load", function () {
         top = "13.3%";
       } else {
         cloneElement = rock.cloneNode(true);
-        cloneElement.style.transform = "translate(-155px, -180px)"
+        cloneElement.style.transform = "translate(-155px, -180px)";
         let firstChild = cloneElement.firstElementChild;
         firstChild.textContent = "SYSTEM CHOICE";
         firstChild.style.opacity = 1;
@@ -236,14 +239,12 @@ window.addEventListener("load", function () {
         i.style.transform = "translate(0px, 100px)";
       }
       i.style.transform = "translate(0px, 100px)";
-      if ( randomNumber === 3 && choiceUser ===3){
-        i.style.transform = "translate(-155px, -180px)"
+      if (randomNumber === 3 && choiceUser === 3) {
+        i.style.transform = "translate(-155px, -180px)";
       }
-      if ( randomNumber === 2 && choiceUser ===2){
-        i.style.transform = "translate(-290px, 100px)"
-
+      if (randomNumber === 2 && choiceUser === 2) {
+        i.style.transform = "translate(-290px, 100px)";
       }
-
     }
 
     cloneElement.id = cloneId;
@@ -328,17 +329,20 @@ window.addEventListener("load", function () {
     }
   }
   function reset() {
+
+    picked.forEach((i) => {
+      i.style.transition = "none";
+      i.classList.add("ocult");
+    });
+
     const elementosClonados = document.querySelectorAll(".cloned-item");
     elementosClonados.forEach(function (elemento) {
       elemento.remove();
     });
-
     paper.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
     scissors.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
     rock.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
-
     triangle.classList.remove("ocult");
-
     paper.classList.remove("ocult");
     paper.classList.toggle("animaPaper");
 
