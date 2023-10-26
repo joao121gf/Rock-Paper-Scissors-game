@@ -29,11 +29,12 @@ window.addEventListener("load", function () {
           paper.classList.add("animaPaper");
         }, 1000);
       });
-      rock.classList.add("ocult");
-      scissors.classList.add("ocult");
-      triangle.classList.add("ocult");
+      rock.classList.toggle("ocult");
+      scissors.classList.toggle("ocult");
+      triangle.classList.toggle("ocult");
       picked.forEach((i) => {
         setTimeout(function () {
+          i.style.transition = "0.8s ease";
           i.classList.remove("ocult");
         }, 300);
       });
@@ -58,11 +59,12 @@ window.addEventListener("load", function () {
           scissors.classList.add("animaScissors");
         }, 1000);
       });
-      rock.classList.add("ocult");
-      paper.classList.add("ocult");
-      triangle.classList.add("ocult");
+      rock.classList.toggle("ocult");
+      paper.classList.toggle("ocult");
+      triangle.classList.toggle("ocult");
       picked.forEach((i) => {
         setTimeout(function () {
+          i.style.transition = "0.8s ease";
           i.classList.remove("ocult");
         }, 300);
       });
@@ -86,11 +88,12 @@ window.addEventListener("load", function () {
           rock.classList.add("animaRock");
         }, 1000);
       });
-      scissors.classList.add("ocult");
-      paper.classList.add("ocult");
-      triangle.classList.add("ocult");
+      scissors.classList.toggle("ocult");
+      paper.classList.toggle("ocult");
+      triangle.classList.toggle("ocult");
       picked.forEach((i) => {
         setTimeout(function () {
+          i.style.transition = "0.8s ease";
           i.classList.remove("ocult");
         }, 300);
       });
@@ -197,8 +200,6 @@ window.addEventListener("load", function () {
         anima(cloneElement);
       } else if (randomNumber === 2) {
         cloneElement = scissors.cloneNode(true);
-        cloneElement.style.transform = "translate(-155px, -180px)";
-
         let firstChild = cloneElement.firstElementChild;
         firstChild.textContent = "SYSTEM CHOICE";
         firstChild.style.opacity = 1;
@@ -211,7 +212,6 @@ window.addEventListener("load", function () {
       } else {
         cloneElement = rock.cloneNode(true);
         cloneElement.style.transform = "translate(-155px, -180px)";
-
         let firstChild = cloneElement.firstElementChild;
         firstChild.textContent = "SYSTEM CHOICE";
         firstChild.style.opacity = 1;
@@ -235,12 +235,15 @@ window.addEventListener("load", function () {
       i.classList.add("animaPaper");
       if (randomNumber === 2) {
         i.style.transform = "translate(-290px, 100px)";
-      }
-      if (randomNumber === 1) {
+      } else if (randomNumber === 3) {
         i.style.transform = "translate(0px, 100px)";
       }
-      if (randomNumber === 3) {
+      i.style.transform = "translate(0px, 100px)";
+      if (randomNumber === 3 && choiceUser === 3) {
         i.style.transform = "translate(-155px, -180px)";
+      }
+      if (randomNumber === 2 && choiceUser === 2) {
+        i.style.transform = "translate(-290px, 100px)";
       }
     }
 
@@ -326,23 +329,20 @@ window.addEventListener("load", function () {
     }
   }
   function reset() {
+
+    picked.forEach((i) => {
+      i.style.transition = "none";
+      i.classList.add("ocult");
+    });
+
     const elementosClonados = document.querySelectorAll(".cloned-item");
     elementosClonados.forEach(function (elemento) {
       elemento.remove();
     });
-
-    picked.forEach((i) => {
-      setTimeout(function () {
-        i.classList.add("ocult");
-      }, 300);
-    });
-
     paper.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
     scissors.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
     rock.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
-
     triangle.classList.remove("ocult");
-
     paper.classList.remove("ocult");
     paper.classList.toggle("animaPaper");
 
