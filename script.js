@@ -343,8 +343,10 @@ window.addEventListener("load", function () {
     scissors.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
     rock.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
     triangle.classList.remove("ocult");
+
+    
     paper.classList.remove("ocult");
-    paper.classList.toggle("animaPaper");
+    paper.classList.remove("animaPaper");
 
     scissors.classList.remove("ocult");
     scissors.classList.remove("animaScissors");
