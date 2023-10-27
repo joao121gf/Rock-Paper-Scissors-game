@@ -115,6 +115,8 @@
   }
 }
 
+
+
 .ocult {
   opacity: 0;
   pointer-events: none;
@@ -123,6 +125,10 @@
 .visible {
   transition: opacity 3s ease-in-out;
 }
+.inva{
+  pointer-events: none !important;
+}
+
 
 .visible {
   opacity: 1;
