@@ -10,6 +10,22 @@ window.addEventListener("load", function () {
   const circles = document.querySelectorAll(".all");
   const results = document.querySelector(".results");
   const btn = this.document.querySelector(".btn");
+  const pBtn = document.querySelector(".btn p");
+  let score = 0;
+  const rules = document.querySelector(".rules-container");
+  const close = document.querySelector(".close");
+  const container = document.querySelector(".box-rules");
+
+  function showRules() {
+    container.style.opacity = 1;
+    container.style.zIndex = "2000";
+  }
+  function closeRules() {
+    container.style.opacity = 0;
+    container.style.zIndex = "-2000";
+  }
+  rules.addEventListener("click", showRules);
+  close.addEventListener("click", closeRules);
 
   function anime() {
     function handleSecondAnimation(i) {
@@ -20,6 +36,9 @@ window.addEventListener("load", function () {
     }
 
     if (this === paper) {
+      rock.classList.add("inva");
+      scissors.classList.add("inva");
+
       paper.style.transform = "translate(0px, 100px)";
       this.classList.toggle("animaPaper");
 
@@ -50,6 +69,8 @@ window.addEventListener("load", function () {
     }
 
     if (this === scissors) {
+      rock.classList.add("inva");
+      paper.classList.add("inva");
       scissors.style.transform = "translate( -290px, 100px)";
       this.classList.toggle("animaScissors");
       scissors.style.animation = "";
@@ -79,6 +100,8 @@ window.addEventListener("load", function () {
       }, 1000);
     }
     if (this === rock) {
+      paper.classList.add("inva");
+      scissors.classList.add("inva");
       rock.style.transform = "translate(-155px, -180px)";
       this.classList.toggle("animaRock");
       rock.style.animation = "";
@@ -258,24 +281,21 @@ window.addEventListener("load", function () {
     boxShadow.style.opacity = 0;
 
     globalChoice = choiceUser;
-    let score = 0;
     let winner;
 
     function whoWin() {
       let i = 1;
       let result;
-      for (1; i < 3 + 1; i++) {
-        if (choiceUser === randomNumber) {
-          result = "draw";
-        } else if (
-          (choiceUser === 1 && randomNumber === 2) ||
-          (choiceUser === 2 && randomNumber === 3) ||
-          (choiceUser === 3 && randomNumber === 1)
-        ) {
-          result = "lose";
-        } else {
-          result = "win";
-        }
+      if (choiceUser === randomNumber) {
+        result = "draw";
+      } else if (
+        (choiceUser === 1 && randomNumber === 2) ||
+        (choiceUser === 2 && randomNumber === 3) ||
+        (choiceUser === 3 && randomNumber === 1)
+      ) {
+        result = "lose";
+      } else {
+        result = "win";
       }
       winner = result;
 
@@ -294,42 +314,43 @@ window.addEventListener("load", function () {
         }
       }
 
-      if (result === "draw") {
+      if (result === "draw" || result === "lose" || result === "win") {
         setTimeout(function () {
           cloneElement.classList.add("winnerPc");
         }, 1000);
         abv();
       }
-
-      if (result === "lose") {
-        setTimeout(function () {
-          cloneElement.classList.add("winnerPc");
-        }, 1000);
-
-        abv();
-      } else if (result === "win") {
-        setTimeout(function () {
-          cloneElement.classList.add("winnerPc");
-        }, 1000);
-        abv();
+      if (winner === "win") {
+        score += 1;
+        results.textContent = score;
+      } else if (winner === "lose") {
+        if (score > 0) {
+          score -= 1;
+          results.textContent = score;
+        }
       }
 
       return winner;
     }
     winner = whoWin();
-    console.log(winner);
-    if (winner === "win") {
-      score += 1;
-      results.textContent = score;
-    } else if (winner === "lose") {
-      if (score > 0) {
-        score -= 1;
-        results.textContent = score;
+    console.log(`${winner} e ${score}`);
+    setTimeout(function () {
+      if (winner === "draw") {
+        pBtn.textContent = "DRAW";
+      } else if (winner === "lose") {
+        pBtn.textContent = "YOU LOSE";
+      } else if (winner === "win") {
+        pBtn.textContent = "YOU WIN";
       }
-    }
+      btn.classList.remove("ocult");
+      btn.classList.add("inva");
+
+      setTimeout(function () {
+        btn.classList.remove("inva");
+      }, 500);
+    }, 1000);
   }
   function reset() {
-
     picked.forEach((i) => {
       i.style.transition = "none";
       i.classList.add("ocult");
@@ -339,12 +360,17 @@ window.addEventListener("load", function () {
     elementosClonados.forEach(function (elemento) {
       elemento.remove();
     });
+    paper.classList.add("inva");
+    scissors.classList.add("inva");
+    rock.classList.add("inva");
+
     paper.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
     scissors.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
     rock.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
     triangle.classList.remove("ocult");
+
     paper.classList.remove("ocult");
-    paper.classList.toggle("animaPaper");
+    paper.classList.remove("animaPaper");
 
     scissors.classList.remove("ocult");
     scissors.classList.remove("animaScissors");
@@ -356,6 +382,14 @@ window.addEventListener("load", function () {
       circle.style.pointerEvents = "auto";
       circle.classList.remove("moveUser");
     });
+    btn.style.transition = "none";
+    btn.classList.add("ocult");
+
+    setTimeout(function () {
+      paper.classList.remove("inva");
+      scissors.classList.remove("inva");
+      rock.classList.remove("inva");
+    }, 1000);
   }
 
   btn.addEventListener("click", reset);
