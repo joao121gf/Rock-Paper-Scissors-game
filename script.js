@@ -12,6 +12,20 @@ window.addEventListener("load", function () {
   const btn = this.document.querySelector(".btn");
   const pBtn = document.querySelector(".btn p");
   let score = 0;
+  const rules = document.querySelector(".rules-container");
+  const close = document.querySelector(".close");
+  const container = document.querySelector(".box-rules");
+
+  function showRules() {
+    container.style.opacity = 1;
+    container.style.zIndex = "2000";
+  }
+  function closeRules() {
+    container.style.opacity = 0;
+    container.style.zIndex = "-2000";
+  }
+  rules.addEventListener("click", showRules);
+  close.addEventListener("click", closeRules);
 
   function anime() {
     function handleSecondAnimation(i) {
@@ -337,13 +351,10 @@ window.addEventListener("load", function () {
     }, 1000);
   }
   function reset() {
-
     picked.forEach((i) => {
       i.style.transition = "none";
       i.classList.add("ocult");
     });
-
-
 
     const elementosClonados = document.querySelectorAll(".cloned-item");
     elementosClonados.forEach(function (elemento) {
