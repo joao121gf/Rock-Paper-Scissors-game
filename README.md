@@ -1,7 +1,7 @@
 # Rock Paper Scissors game
  An exercise to reinforce my programming logic
 
-![Imagem do projeto](elementos/rock-paper-scissors-master/images/paper.png)
+![Imagem do projeto](./elementos/rock-paper-scissors-master/images/paper.png)
 
 
 [Você pode conferir como ficou o projeto aqui](https://joao121gf.github.io/Rock-Paper-Scissors-game/)
