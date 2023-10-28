@@ -36,10 +36,10 @@ window.addEventListener("load", function () {
     }
 
     if (this === paper) {
+
       rock.classList.add("inva");
       scissors.classList.add("inva");
 
-      paper.style.transform = "translate(0px, 100px)";
       this.classList.toggle("animaPaper");
 
       paper.addEventListener("animationend", () => {
@@ -71,7 +71,7 @@ window.addEventListener("load", function () {
     if (this === scissors) {
       rock.classList.add("inva");
       paper.classList.add("inva");
-      scissors.style.transform = "translate( -290px, 100px)";
+      scissors.style.transform = "translate( -135px, 100px)";
       this.classList.toggle("animaScissors");
       scissors.style.animation = "";
       scissors.addEventListener("animationend", () => {
@@ -138,6 +138,7 @@ window.addEventListener("load", function () {
   });
 
   function generateCircle(choiceUser) {
+    const screenWidth = window.innerWidth;
     const randomNumber = Math.floor(Math.random() * 3) + 1;
     let cloneElement, cloneId, left, top;
 
@@ -173,6 +174,9 @@ window.addEventListener("load", function () {
         cloneId = "cloneRocks";
         left = "72%";
         top = "13%";
+        if(screenWidth < 900){
+          // top = "11%";
+        }
         anima(cloneElement);
       }
     }
@@ -301,7 +305,7 @@ window.addEventListener("load", function () {
 
       function setTime(i) {
         setTimeout(function () {
-          i.classList.add("moveUser");
+          // i.classList.add("moveUser");
         }, 1000);
       }
       function abv() {
