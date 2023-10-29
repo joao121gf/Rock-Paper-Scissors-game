@@ -407,7 +407,6 @@ window.addEventListener("load", function () {
       return winner;
     }
     winner = whoWin();
-    console.log(`${winner} e ${score}`);
     setTimeout(function () {
       if (winner === "draw") {
         pBtn.textContent = "DRAW";
