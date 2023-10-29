@@ -151,7 +151,6 @@ footer {
   border-radius: 10px;
   padding-top: 12px;
   transition: 0.8s ease;
-
 }
 .box-rules {
   opacity: 0;
@@ -388,7 +387,7 @@ footer {
   .animaScissors {
     animation: moveScissors 1s ease;
   }
-  .square{
+  .square {
     width: 309px;
     height: 306px;
     padding: 20px;
