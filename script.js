@@ -34,6 +34,7 @@ window.addEventListener("load", function () {
       i.style.transform =
         estadoFinal.transform + " scale(1.2) translateX(-50px)";
     }
+    const screenWidth = window.innerWidth;
 
     if (this === paper) {
       rock.classList.add("inva");
@@ -68,6 +69,9 @@ window.addEventListener("load", function () {
     }
 
     if (this === scissors) {
+      if (screenWidth < 900){
+        scissors.style.transform = "translate( -170px, 100px)";
+      }
       rock.classList.add("inva");
       paper.classList.add("inva");
 
@@ -99,8 +103,12 @@ window.addEventListener("load", function () {
       }, 1000);
     }
     if (this === rock) {
+      if (screenWidth < 900) {
+        rock.style.transform = "translate(-80px, -30px)";
+      }
       paper.classList.add("inva");
       scissors.classList.add("inva");
+
       this.classList.toggle("animaRock");
       rock.style.animation = "";
       rock.addEventListener("animationend", () => {
@@ -149,7 +157,7 @@ window.addEventListener("load", function () {
         firstChild.style.left = "15%";
         cloneId = "clonePapers";
         left = "70%";
-        if (screenWidth < 768) {
+        if (screenWidth < 900) {
           top = "23%";
         } else {
           top = "16%";
@@ -166,7 +174,7 @@ window.addEventListener("load", function () {
         left = "72%";
         top = "13%";
         const screenWidth = window.innerWidth;
-        if (screenWidth < 768) {
+        if (screenWidth < 900) {
           top = "18%";
         } else {
           top = "13%";
@@ -182,7 +190,7 @@ window.addEventListener("load", function () {
         cloneId = "cloneRocks";
         left = "72%";
         const screenWidth = window.innerWidth;
-        if (screenWidth < 768) {
+        if (screenWidth < 900) {
           top = "18%";
         } else {
           top = "13%";
@@ -200,7 +208,7 @@ window.addEventListener("load", function () {
         cloneId = "clonePapers";
         left = "70%";
         top = "16.3%";
-        if (screenWidth < 768) {
+        if (screenWidth < 900) {
           top = "24.2%";
         } else {
           top = "16.3%";
@@ -214,7 +222,7 @@ window.addEventListener("load", function () {
         firstChild.style.left = "15%";
         cloneId = "cloneScissors";
 
-        if (screenWidth < 768) {
+        if (screenWidth < 900) {
           top = "19%";
           left = "66%";
         } else {
@@ -230,7 +238,7 @@ window.addEventListener("load", function () {
         firstChild.style.left = "15%";
         cloneId = "cloneRocks";
         left = "72%";
-        if (screenWidth < 768) {
+        if (screenWidth < 900) {
           top = "20%";
         } else {
           top = "13%";
@@ -249,7 +257,7 @@ window.addEventListener("load", function () {
         cloneId = "clonePapers";
         left = "70%";
 
-        if (screenWidth < 768) {
+        if (screenWidth < 900) {
           top = "25.7%";
         } else {
           top = "16.3%";
@@ -263,7 +271,7 @@ window.addEventListener("load", function () {
         firstChild.style.left = "15%";
         anima(cloneElement);
 
-        if (screenWidth < 768) {
+        if (screenWidth < 900) {
           top = "19.3%";
         } else {
           top = "13.3%";
@@ -280,7 +288,7 @@ window.addEventListener("load", function () {
         cloneId = "cloneRocks";
         left = "154%";
 
-        if (screenWidth < 768) {
+        if (screenWidth < 900) {
           top = "-19.7%";
         } else {
           top = "58.6%";
