@@ -41,6 +41,24 @@
   align-items: center;
 }
 
+footer {
+  color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  padding: 10px;
+  background-color: hsl(230deg 97.74% 65.22% / 23%);
+  font-size: 14px;
+}
+
+.gitH {
+  color: yellow;
+}
+
 .pScore {
   color: hsl(229, 64%, 46%);
   font-size: 13px;
@@ -132,6 +150,8 @@
   background-color: #ddd;
   border-radius: 10px;
   padding-top: 12px;
+  transition: 0.8s ease;
+
 }
 .box-rules {
   opacity: 0;
@@ -368,8 +388,16 @@
   .animaScissors {
     animation: moveScissors 1s ease;
   }
+  .square{
+    width: 309px;
+    height: 306px;
+    padding: 20px;
+  }
 }
 @media (max-width: 900px) {
+  .rules-container {
+    margin-top: 0px;
+  }
   .animaScissors {
     animation: moveScissors 1s ease;
   }
