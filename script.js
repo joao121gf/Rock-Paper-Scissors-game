@@ -29,10 +29,16 @@ window.addEventListener("load", function () {
 
   function anime() {
     function handleSecondAnimation(i) {
-      const estadoFinal = window.getComputedStyle(i);
+      const screenWidth = window.innerWidth;
 
-      i.style.transform =
-        estadoFinal.transform + " scale(1.2) translateX(-50px)";
+      const estadoFinal = window.getComputedStyle(i);
+      if (screenWidth < 512) {
+        i.style.transform =
+          estadoFinal.transform + " scale(1.1) translateX(-13px)";
+      } else {
+        i.style.transform =
+          estadoFinal.transform + " scale(1.2) translateX(-50px)";
+      }
     }
     const screenWidth = window.innerWidth;
     if (this === paper) {
@@ -305,8 +311,13 @@ window.addEventListener("load", function () {
 
     function handleSecondAnimationPc(i) {
       const estadoFinal = window.getComputedStyle(i);
-      i.style.transform =
-        estadoFinal.transform + " scale(1.2) translateX(50px)";
+      if (screenWidth < 512) {
+        i.style.transform =
+          estadoFinal.transform + " scale(1.1) translateX(13px)";
+      } else {
+        i.style.transform =
+          estadoFinal.transform + " scale(1.2) translateX(50px)";
+      }
     }
     cloneElement.addEventListener("animationend", () => {
       handleSecondAnimationPc(cloneElement);
