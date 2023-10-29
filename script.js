@@ -69,7 +69,7 @@ window.addEventListener("load", function () {
     }
 
     if (this === scissors) {
-      if (screenWidth < 900){
+      if (screenWidth < 900) {
         scissors.style.transform = "translate( -170px, 100px)";
       }
       rock.classList.add("inva");
@@ -280,21 +280,22 @@ window.addEventListener("load", function () {
         left = "73%";
       } else {
         cloneElement = rock.cloneNode(true);
-        cloneElement.style.transform = "translate(-125px, -150px)";
         let firstChild = cloneElement.firstElementChild;
         firstChild.textContent = "SYSTEM CHOICE";
         firstChild.style.opacity = 1;
         firstChild.style.left = "15%";
-        cloneId = "cloneRocks";
-        left = "154%";
+        anima(cloneElement);
 
         if (screenWidth < 900) {
-          top = "-19.7%";
+          top = "20.7%";
+          left = "70%";
         } else {
           top = "58.6%";
           left = "154%";
         }
-        anima(cloneElement);
+        cloneId = "cloneRocks";
+
+
       }
     }
 
@@ -309,6 +310,9 @@ window.addEventListener("load", function () {
     function anima(i) {
       const screenWidth = window.innerWidth;
       i.classList.add("animaPaper");
+      if (i.classList.contains("animaRock")) {
+        i.classList.remove("animaRock");
+      }
       if (screenWidth < 900) {
         translateX = -100;
         translateY = -120;
@@ -317,7 +321,7 @@ window.addEventListener("load", function () {
         } else if (randomNumber === 2 || randomNumber === 3) {
           i.style.transform = "translate(0px, 100px)";
         } else if (randomNumber === 3 && choiceUser === 3) {
-          i.style.transform = "translate(-155px, -180px)";
+          i.style.transform = "translate(-55px, -60px)";
         }
       } else {
         if (randomNumber === 2) {
