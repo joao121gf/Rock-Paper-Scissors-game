@@ -385,7 +385,7 @@
 
   .animaPaper {
     animation: movePaper 1s ease;
-    transform: translate(0px, 70px);
+    transform: translate(0px, 100px);
   }
 
   @keyframes movePaper {
@@ -393,7 +393,7 @@
       transform: translate(0, 0);
     }
     100% {
-      transform: translate(0px, 70px);
+      transform: translate(0px, 100px);
     }
   }
   .animaScissors {
@@ -406,7 +406,27 @@
       transform: translate(0, 0);
     }
     100% {
-      transform: translate(-290px, 120px);
+      transform: translate(-290px, 120px) !;
+    }
+  }
+  .box-shadow {
+    height: 116px;
+    width: 120px;
+    opacity: 1;
+    left: 71%;
+    top: 48%;
+  }
+  .animaRock {
+    animation: moveRock 1s ease;
+    transform: translate(-80px, -30px);
+  }
+
+  @keyframes moveRock {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(-80px, -30px);
     }
   }
 }

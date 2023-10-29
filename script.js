@@ -36,7 +36,6 @@ window.addEventListener("load", function () {
     }
 
     if (this === paper) {
-
       rock.classList.add("inva");
       scissors.classList.add("inva");
 
@@ -71,7 +70,7 @@ window.addEventListener("load", function () {
     if (this === scissors) {
       rock.classList.add("inva");
       paper.classList.add("inva");
-      scissors.style.transform = "translate( -135px, 100px)";
+
       this.classList.toggle("animaScissors");
       scissors.style.animation = "";
       scissors.addEventListener("animationend", () => {
@@ -102,7 +101,6 @@ window.addEventListener("load", function () {
     if (this === rock) {
       paper.classList.add("inva");
       scissors.classList.add("inva");
-      rock.style.transform = "translate(-155px, -180px)";
       this.classList.toggle("animaRock");
       rock.style.animation = "";
       rock.addEventListener("animationend", () => {
@@ -151,7 +149,11 @@ window.addEventListener("load", function () {
         firstChild.style.left = "15%";
         cloneId = "clonePapers";
         left = "70%";
-        top = "16%";
+        if (screenWidth < 768) {
+          top = "23%";
+        } else {
+          top = "16%";
+        }
         anima(cloneElement);
       } else if (randomNumber === 2) {
         cloneElement = scissors.cloneNode(true);
@@ -163,6 +165,12 @@ window.addEventListener("load", function () {
         cloneId = "cloneScissors";
         left = "72%";
         top = "13%";
+        const screenWidth = window.innerWidth;
+        if (screenWidth < 768) {
+          top = "18%";
+        } else {
+          top = "13%";
+        }
         anima(cloneElement);
       } else {
         cloneElement = rock.cloneNode(true);
@@ -173,9 +181,11 @@ window.addEventListener("load", function () {
         firstChild.style.left = "15%";
         cloneId = "cloneRocks";
         left = "72%";
-        top = "13%";
-        if(screenWidth < 900){
-          // top = "11%";
+        const screenWidth = window.innerWidth;
+        if (screenWidth < 768) {
+          top = "18%";
+        } else {
+          top = "13%";
         }
         anima(cloneElement);
       }
@@ -190,6 +200,11 @@ window.addEventListener("load", function () {
         cloneId = "clonePapers";
         left = "70%";
         top = "16.3%";
+        if (screenWidth < 768) {
+          top = "24.2%";
+        } else {
+          top = "16.3%";
+        }
         anima(cloneElement);
       } else if (randomNumber === 2) {
         cloneElement = scissors.cloneNode(true);
@@ -198,8 +213,14 @@ window.addEventListener("load", function () {
         firstChild.style.opacity = 1;
         firstChild.style.left = "15%";
         cloneId = "cloneScissors";
-        left = "224%";
-        top = "13%";
+
+        if (screenWidth < 768) {
+          top = "19%";
+          left = "66%";
+        } else {
+          top = "13%";
+          left = "224%";
+        }
         anima(cloneElement);
       } else {
         cloneElement = rock.cloneNode(true);
@@ -209,7 +230,11 @@ window.addEventListener("load", function () {
         firstChild.style.left = "15%";
         cloneId = "cloneRocks";
         left = "72%";
-        top = "13%";
+        if (screenWidth < 768) {
+          top = "20%";
+        } else {
+          top = "13%";
+        }
         anima(cloneElement);
       }
     }
@@ -223,7 +248,12 @@ window.addEventListener("load", function () {
 
         cloneId = "clonePapers";
         left = "70%";
-        top = "16.3%";
+
+        if (screenWidth < 768) {
+          top = "25.7%";
+        } else {
+          top = "16.3%";
+        }
         anima(cloneElement);
       } else if (randomNumber === 2) {
         cloneElement = scissors.cloneNode(true);
@@ -233,19 +263,29 @@ window.addEventListener("load", function () {
         firstChild.style.left = "15%";
         anima(cloneElement);
 
+        if (screenWidth < 768) {
+          top = "19.3%";
+        } else {
+          top = "13.3%";
+        }
         cloneId = "cloneScissors";
         left = "73%";
-        top = "13.3%";
       } else {
         cloneElement = rock.cloneNode(true);
-        cloneElement.style.transform = "translate(-155px, -180px)";
+        cloneElement.style.transform = "translate(-125px, -150px)";
         let firstChild = cloneElement.firstElementChild;
         firstChild.textContent = "SYSTEM CHOICE";
         firstChild.style.opacity = 1;
         firstChild.style.left = "15%";
         cloneId = "cloneRocks";
         left = "154%";
-        top = "58.6%";
+
+        if (screenWidth < 768) {
+          top = "-19.7%";
+        } else {
+          top = "58.6%";
+          left = "154%";
+        }
         anima(cloneElement);
       }
     }
@@ -259,18 +299,34 @@ window.addEventListener("load", function () {
       handleSecondAnimationPc(cloneElement);
     });
     function anima(i) {
+      const screenWidth = window.innerWidth;
       i.classList.add("animaPaper");
-      if (randomNumber === 2) {
-        i.style.transform = "translate(-290px, 100px)";
-      } else if (randomNumber === 3) {
-        i.style.transform = "translate(0px, 100px)";
-      }
-      i.style.transform = "translate(0px, 100px)";
-      if (randomNumber === 3 && choiceUser === 3) {
-        i.style.transform = "translate(-155px, -180px)";
-      }
-      if (randomNumber === 2 && choiceUser === 2) {
-        i.style.transform = "translate(-290px, 100px)";
+      if (screenWidth < 900) {
+        translateX = -100;
+        translateY = -120;
+        if (randomNumber === 1) {
+          i.style.transform = "translate(0px, 100px)";
+        } else if (randomNumber === 2 || randomNumber === 3) {
+          i.style.transform = "translate(0px, 100px)";
+        } else if (randomNumber === 3 && choiceUser === 3) {
+          i.style.transform = "translate(-155px, -180px)";
+        }
+      } else {
+        if (randomNumber === 2) {
+          i.classList.add("animaPaper");
+          if (randomNumber === 2) {
+            i.style.transform = "translate(-290px, 100px)";
+          } else if (randomNumber === 3) {
+            i.style.transform = "translate(0px, 100px)";
+          }
+          i.style.transform = "translate(0px, 100px)";
+          if (randomNumber === 3 && choiceUser === 3) {
+            i.style.transform = "translate(-155px, -180px)";
+          }
+          if (randomNumber === 2 && choiceUser === 2) {
+            i.style.transform = "translate(-290px, 100px)";
+          }
+        }
       }
     }
 
