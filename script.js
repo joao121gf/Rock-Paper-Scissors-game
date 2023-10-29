@@ -28,18 +28,19 @@ window.addEventListener("load", function () {
   close.addEventListener("click", closeRules);
 
   function anime() {
+    
     function handleSecondAnimation(i) {
       const estadoFinal = window.getComputedStyle(i);
 
       i.style.transform =
         estadoFinal.transform + " scale(1.2) translateX(-50px)";
     }
+    const screenWidth = window.innerWidth;
 
     if (this === paper) {
       rock.classList.add("inva");
       scissors.classList.add("inva");
 
-      paper.style.transform = "translate(0px, 100px)";
       this.classList.toggle("animaPaper");
 
       paper.addEventListener("animationend", () => {
@@ -69,9 +70,12 @@ window.addEventListener("load", function () {
     }
 
     if (this === scissors) {
+      if (screenWidth < 900) {
+        scissors.style.transform = "translate( -170px, 100px)";
+      }
       rock.classList.add("inva");
       paper.classList.add("inva");
-      scissors.style.transform = "translate( -290px, 100px)";
+
       this.classList.toggle("animaScissors");
       scissors.style.animation = "";
       scissors.addEventListener("animationend", () => {
@@ -100,9 +104,12 @@ window.addEventListener("load", function () {
       }, 1000);
     }
     if (this === rock) {
+      if (screenWidth < 900) {
+        rock.style.transform = "translate(-80px, -30px)";
+      }
       paper.classList.add("inva");
       scissors.classList.add("inva");
-      rock.style.transform = "translate(-155px, -180px)";
+
       this.classList.toggle("animaRock");
       rock.style.animation = "";
       rock.addEventListener("animationend", () => {
@@ -138,6 +145,7 @@ window.addEventListener("load", function () {
   });
 
   function generateCircle(choiceUser) {
+    const screenWidth = window.innerWidth;
     const randomNumber = Math.floor(Math.random() * 3) + 1;
     let cloneElement, cloneId, left, top;
 
@@ -150,7 +158,11 @@ window.addEventListener("load", function () {
         firstChild.style.left = "15%";
         cloneId = "clonePapers";
         left = "70%";
-        top = "16%";
+        if (screenWidth < 900) {
+          top = "23%";
+        } else {
+          top = "16%";
+        }
         anima(cloneElement);
       } else if (randomNumber === 2) {
         cloneElement = scissors.cloneNode(true);
@@ -162,6 +174,12 @@ window.addEventListener("load", function () {
         cloneId = "cloneScissors";
         left = "72%";
         top = "13%";
+        const screenWidth = window.innerWidth;
+        if (screenWidth < 900) {
+          top = "18%";
+        } else {
+          top = "13%";
+        }
         anima(cloneElement);
       } else {
         cloneElement = rock.cloneNode(true);
@@ -172,7 +190,12 @@ window.addEventListener("load", function () {
         firstChild.style.left = "15%";
         cloneId = "cloneRocks";
         left = "72%";
-        top = "13%";
+        const screenWidth = window.innerWidth;
+        if (screenWidth < 900) {
+          top = "18%";
+        } else {
+          top = "13%";
+        }
         anima(cloneElement);
       }
     }
@@ -186,6 +209,11 @@ window.addEventListener("load", function () {
         cloneId = "clonePapers";
         left = "70%";
         top = "16.3%";
+        if (screenWidth < 900) {
+          top = "24.2%";
+        } else {
+          top = "16.3%";
+        }
         anima(cloneElement);
       } else if (randomNumber === 2) {
         cloneElement = scissors.cloneNode(true);
@@ -194,8 +222,14 @@ window.addEventListener("load", function () {
         firstChild.style.opacity = 1;
         firstChild.style.left = "15%";
         cloneId = "cloneScissors";
-        left = "224%";
-        top = "13%";
+
+        if (screenWidth < 900) {
+          top = "19%";
+          left = "66%";
+        } else {
+          top = "13%";
+          left = "224%";
+        }
         anima(cloneElement);
       } else {
         cloneElement = rock.cloneNode(true);
@@ -205,7 +239,11 @@ window.addEventListener("load", function () {
         firstChild.style.left = "15%";
         cloneId = "cloneRocks";
         left = "72%";
-        top = "13%";
+        if (screenWidth < 900) {
+          top = "20%";
+        } else {
+          top = "13%";
+        }
         anima(cloneElement);
       }
     }
@@ -219,7 +257,12 @@ window.addEventListener("load", function () {
 
         cloneId = "clonePapers";
         left = "70%";
-        top = "16.3%";
+
+        if (screenWidth < 900) {
+          top = "25.7%";
+        } else {
+          top = "16.3%";
+        }
         anima(cloneElement);
       } else if (randomNumber === 2) {
         cloneElement = scissors.cloneNode(true);
@@ -229,20 +272,31 @@ window.addEventListener("load", function () {
         firstChild.style.left = "15%";
         anima(cloneElement);
 
+        if (screenWidth < 900) {
+          top = "19.3%";
+        } else {
+          top = "13.3%";
+        }
         cloneId = "cloneScissors";
         left = "73%";
-        top = "13.3%";
       } else {
         cloneElement = rock.cloneNode(true);
-        cloneElement.style.transform = "translate(-155px, -180px)";
         let firstChild = cloneElement.firstElementChild;
         firstChild.textContent = "SYSTEM CHOICE";
         firstChild.style.opacity = 1;
         firstChild.style.left = "15%";
-        cloneId = "cloneRocks";
-        left = "154%";
-        top = "58.6%";
         anima(cloneElement);
+
+        if (screenWidth < 900) {
+          top = "20.7%";
+          left = "70%";
+        } else {
+          top = "58.6%";
+          left = "154%";
+        }
+        cloneId = "cloneRocks";
+
+
       }
     }
 
@@ -255,18 +309,38 @@ window.addEventListener("load", function () {
       handleSecondAnimationPc(cloneElement);
     });
     function anima(i) {
+      
+      const screenWidth = window.innerWidth;
       i.classList.add("animaPaper");
-      if (randomNumber === 2) {
-        i.style.transform = "translate(-290px, 100px)";
-      } else if (randomNumber === 3) {
-        i.style.transform = "translate(0px, 100px)";
+      if (i.classList.contains("animaRock")) {
+        i.classList.remove("animaRock");
       }
-      i.style.transform = "translate(0px, 100px)";
-      if (randomNumber === 3 && choiceUser === 3) {
-        i.style.transform = "translate(-155px, -180px)";
-      }
-      if (randomNumber === 2 && choiceUser === 2) {
-        i.style.transform = "translate(-290px, 100px)";
+      if (screenWidth < 900) {
+        translateX = -100;
+        translateY = -120;
+        if (randomNumber === 1) {
+          i.style.transform = "translate(0px, 100px)";
+        } else if (randomNumber === 2 || randomNumber === 3) {
+          i.style.transform = "translate(0px, 100px)";
+        } else if (randomNumber === 3 && choiceUser === 3) {
+          i.style.transform = "translate(-55px, -60px)";
+        }
+      } else {
+        if (randomNumber === 2) {
+          i.classList.add("animaPaper");
+          if (randomNumber === 2) {
+            i.style.transform = "translate(-290px, 100px)";
+          } else if (randomNumber === 3) {
+            i.style.transform = "translate(0px, 100px)";
+          }
+          i.style.transform = "translate(0px, 100px)";
+          if (randomNumber === 3 && choiceUser === 3) {
+            i.style.transform = "translate(-155px, -180px)";
+          }
+          if (randomNumber === 2 && choiceUser === 2) {
+            i.style.transform = "translate(-290px, 100px)";
+          }
+        }
       }
     }
 
@@ -301,7 +375,7 @@ window.addEventListener("load", function () {
 
       function setTime(i) {
         setTimeout(function () {
-          i.classList.add("moveUser");
+          // i.classList.add("moveUser");
         }, 1000);
       }
       function abv() {
@@ -364,6 +438,7 @@ window.addEventListener("load", function () {
     scissors.classList.add("inva");
     rock.classList.add("inva");
 
+    
     paper.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
     scissors.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
     rock.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
