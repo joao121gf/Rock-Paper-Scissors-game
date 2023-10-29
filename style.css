@@ -367,7 +367,9 @@ footer {
   cursor: pointer;
   transition: 0.2s ease;
 }
-
+.all{
+  cursor: pointer;
+}
 .btn-play:hover {
   color: #9d1736;
 }
