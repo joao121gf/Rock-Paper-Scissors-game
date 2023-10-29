@@ -286,7 +286,7 @@ window.addEventListener("load", function () {
           top = "19.3%";
           left = "73%";
         } else {
-          top = "13.3%";
+          top = "13.2%";
           left = "73%";
         }
         anima(cloneElement);
