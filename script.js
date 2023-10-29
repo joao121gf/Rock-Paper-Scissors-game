@@ -28,6 +28,7 @@ window.addEventListener("load", function () {
   close.addEventListener("click", closeRules);
 
   function anime() {
+    
     function handleSecondAnimation(i) {
       const estadoFinal = window.getComputedStyle(i);
 
@@ -308,6 +309,7 @@ window.addEventListener("load", function () {
       handleSecondAnimationPc(cloneElement);
     });
     function anima(i) {
+      
       const screenWidth = window.innerWidth;
       i.classList.add("animaPaper");
       if (i.classList.contains("animaRock")) {
@@ -436,6 +438,7 @@ window.addEventListener("load", function () {
     scissors.classList.add("inva");
     rock.classList.add("inva");
 
+    
     paper.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
     scissors.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
     rock.style.transform = "matrix(1, 0, 0, 1, 0, 0)";
